@@ -1,12 +1,14 @@
 .html {
   line-height: 1.5; 
   
+  
 }
 
 .body{
   margin:0;
-    background: #2A2C2F;
+    background: #000;
     margin: 0;
+    color: white;
 
 
 
