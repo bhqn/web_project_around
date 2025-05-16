@@ -1,0 +1,62 @@
+.gallery{
+    padding-top: 50px;
+    object-fit: cover;
+  
+    display: grid;
+    grid-template-areas: 
+    "card card card"
+    "card card card";
+    
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   gap: 20px;
+
+}
+
+
+
+.gallery__card{
+    grid-area: "card";
+    width: 282px;
+    height: 361px;
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    flex-direction: column; 
+    background-color: white;
+    
+}
+
+.gallery__image{
+    object-fit: cover;
+    width: 282px;
+    height: 282px;
+    overflow: hidden;
+
+
+}
+
+
+.card__content{
+   
+    display: flex;
+    
+    color: black;
+    justify-content: space-between;
+    padding: 10px; 
+
+}
+
+.card__title{
+
+font-weight: 900;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0;
+
+}
+
+.card__button{
+    border: none;
+    background-color: #0000;
+}
