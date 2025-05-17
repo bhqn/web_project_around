@@ -79,7 +79,7 @@
     margin-top: auto;
     margin-bottom: auto;
     background-color: #00000000;
-    border: 1PX solid white;
+    border: 2PX solid white;
     color: white;
     
     
@@ -87,7 +87,7 @@
 }
 
 .profile__button_add:hover {
-    border: 1px solid #ffffff50;
+    border: 2px solid #ffffff50;
     cursor: pointer;
 }
 
