@@ -43,13 +43,33 @@
 
 }
 
-.profile__button_edit{
-    margin-top: 15PX;
+.profile__button_edit {
+    margin-top: 15px;
     width: 24px;
     height: 24px;
     margin-left: auto;
-    background-color: #00000000;
-    border: 1PX solid white;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilizando a imagem do SVG dentro do botão */
+.profile__button_edit img {
+    width: 12px; /* Ajuste conforme necessário */
+    height: 12px;
+    filter: brightness(0) invert(1); /* Transforma o SVG em branco */
+}
+
+/* Efeito hover na borda E no SVG */
+.profile__button_edit:hover {
+    border: 2px solid #ffffff50;
+}
+
+.profile__button_edit:hover img {
+    filter: brightness(0) invert(0.7); 
 }
 
 .profile__button_add{
@@ -65,4 +85,15 @@
     
     
 }
+
+.profile__button_add:hover {
+    border: 1px solid #ffffff50;
+    cursor: pointer;
+}
+
+.profile__button_add:hover .button-add-icon {
+    filter: brightness(0) invert(0.7); 
+    
+}
+
 

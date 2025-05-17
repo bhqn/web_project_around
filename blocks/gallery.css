@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column; 
     background-color: white;
+    border-radius: 10px;
     
 }
 
@@ -32,6 +33,8 @@
     width: 282px;
     height: 282px;
     overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 
 
 }
@@ -48,7 +51,7 @@
 }
 
 .card__title{
-
+overflow: hidden;
 font-weight: 900;
 font-size: 24px;
 line-height: 100%;
@@ -56,7 +59,22 @@ letter-spacing: 0;
 
 }
 
-.card__button{
-    border: none;
-    background-color: #0000;
+.card__button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.card__button__icon {
+  width: 24px;
+  height: 24px;
+  /* Estado normal: coração vazio (exemplo: preto transparente ou borda) */
+  filter: brightness(0) invert(0.2); /* Cinza claro (ajuste conforme seu SVG) */
+  transition: filter 0.3s ease;
+}
+
+/* Hover: coração preto sólido */
+.card__button:hover .card__button__icon {
+  filter: brightness(0) invert(0); /* Preto puro */
 }
