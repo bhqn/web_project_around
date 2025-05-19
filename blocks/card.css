@@ -1,0 +1,44 @@
+.card__content{
+   
+    display: flex;
+    
+    color: black;
+    justify-content: space-between;
+    padding: 10px; 
+    
+
+}
+
+.card__button {
+  width: 24px;
+  height: 24px;
+  -webkit-mask: url('../images/like.svg') no-repeat center;
+  background-color: black;
+  transition: all 0.3s ease;
+  margin: auto 0 auto 0;
+
+}
+
+.card__button:hover{
+    background-color: rgba(0, 0, 0, 0.496);
+}
+
+.card__button:active {
+    background-color: black;
+  -webkit-mask: url('../images/like.svg') no-repeat center;
+  mask: url('../images/Union.png') no-repeat center;
+
+}
+
+.card__title{
+
+font-weight: 900;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0;
+ text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+
+}
