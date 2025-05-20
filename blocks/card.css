@@ -24,8 +24,8 @@
 }
 
 .card__button:active {
-    background-color: black;
-  -webkit-mask: url('../images/like.svg') no-repeat center;
+  background-color: black;
+
   mask: url('../images/Union.png') no-repeat center;
 
 }

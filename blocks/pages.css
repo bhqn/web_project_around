@@ -4,3 +4,21 @@
     max-width: 880px;
     width: 100%;
 }
+
+
+@media (max-width: 320px) {
+    .page{
+        max-width: 320px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+
+    }
+    .main{
+ 
+    }
+
+
+}
