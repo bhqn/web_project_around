@@ -11,7 +11,8 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover
+    object-fit: cover;
+    margin-right:30px;
 }
 
 .profile__content{
