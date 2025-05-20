@@ -1,7 +1,5 @@
 .card__content{
-   
     display: flex;
-    
     color: black;
     justify-content: space-between;
     padding: 10px; 
@@ -24,8 +22,8 @@
 }
 
 .card__button:active {
-  background-color: black;
-
+    background-color: black;
+  -webkit-mask: url('../images/like.svg') no-repeat center;
   mask: url('../images/Union.png') no-repeat center;
 
 }
