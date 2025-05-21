@@ -39,10 +39,37 @@
 
 }
 
+@media (max-width: 800px) {
+
+    .gallery{
+    padding-top: 50px;
+    object-fit: cover;
+    width: 584px;
+    margin: auto;
+    display: grid;
+    grid-template-areas: 
+    "card card"
+    "card card"
+    "card card";
+   grid-template-columns: 1fr 1fr ;
+   grid-template-rows: 1fr ;
+   gap: 20px;
+
+}
+
+
+
+
+
+    
+
+}
+
 
 @media (max-width: 320px) {
 
 .gallery{
+    width: 282px;
     padding-top: 50px;
     object-fit: cover;
     display: grid;

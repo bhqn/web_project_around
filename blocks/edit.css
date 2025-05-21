@@ -4,11 +4,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Preto com 30% de opacidade */
+    background-color: rgba(0, 0, 0, 0.3);
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    z-index: 1000; 
 }
 
 .edit__card{
@@ -122,13 +122,9 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
-    
-    
     z-index: 1000;
-    /* Remova os paddings laterais do container */
     padding: 0;
     margin: 0;
-    /* Garante que o container não tenha limite de largura */
     max-width: none;
 }
 
@@ -136,10 +132,11 @@
     background-color: white;
     width: 100%; 
     max-width: 282px; 
-    left: 0;
+    left: 6%;
     justify-content: center;
     padding: 25px 22px; 
     box-sizing: border-box;
+    top: 123px;
     
 }
 
@@ -165,11 +162,13 @@
 
 .edit__button_close{
     position: relative;
-    left: 0;
+    left: -10%;
     width: 26px;
     height: 26px;
     margin-bottom: 13.62px;
     background-size: cover;
+    top: 72.62px;
+    
 
 }
 
