@@ -11,6 +11,7 @@
     name="keywords"
     content="around, social-media, gallery, tripleten"
   />
+  
   <link rel="stylesheet" href="./pages/index.css" />
    <link rel="shortcut icon" href="./favicon.ico" />
    
@@ -29,7 +30,7 @@
                 <h1 class="profile__name"> Jacques Cousteu</h1>
                 <p class="profile__description">Explorador</p>
                 </div>
-                <button class=" profile__button_edit"><img class="profile__button__icon" src="./images/pencil.png" alt="botão editar"></button>
+                <button class=" profile__button_edit" id="open__button_edit"><img class="profile__button__icon" src="./images/pencil.png" alt="botão editar"></button>
                 </div>
                 <button class="profile__button_add"><img class="button-add-icon" src="./images/add.png" alt="adicionar"></button>
             </section>
@@ -83,14 +84,27 @@
                         </div> 
                 </div>
 
-               
-               
 
+            </section>
+
+            <section class="edit" id="editCard"> 
+                <button class="edit__button_close" id="buttonclose"></button>
+
+              <div class="edit__card">
+                    <h1 class="edit__tittle">Edit perfil</h1>
+                    <form class="edit__form">
+                        <fieldset class="form__fieldset">
+                        <input class= "form__input form__input_name" type="text" placeholder="Jacques Cousteu"></input>
+                        <input class= "form__input form__input_description" type="text" placeholder="Explorador"></input>
+                        </fieldset>
+                        <button class="edit__button"> Salvar</button>
+                    </form>
+                </div>
             </section>
 
         </main>
         <footer class="footer"><p class="footer__paragraph">© 2024 Around The U.S.</p></footer>
     </div>
-    
+    <script src="./scripts/script.js" ></script>
 </body>
 </html>
