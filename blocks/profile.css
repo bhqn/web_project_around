@@ -52,7 +52,7 @@
 
 }
 
-.profile__button_edit {
+.profile__button-edit {
     grid-area: "button";
     margin-top: 15px;
     width: 24px;
@@ -68,18 +68,18 @@
 }
 
 
-.profile__button_edit img {
+.profile__button-edit img {
     width: 12px; 
     height: 12px;
     filter: brightness(0) invert(1); 
 }
 
 
-.profile__button_edit:hover {
+.profile__button-edit:hover {
     border: 2px solid #ffffff50;
 }
 
-.profile__button_edit:hover img {
+.profile__button-edit:hover img {
     filter: brightness(0) invert(0.7); 
 }
 
@@ -174,7 +174,7 @@ padding-top: 14px;
 
 }
 
-.profile__button_edit {
+.profile__button-edit {
     margin-top: 33px;
     width: 18px;
     height: 18px;
