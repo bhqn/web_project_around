@@ -4,6 +4,7 @@
     display: flex;
     margin-top: 36.25px ;
     margin: auto;
+    margin-top: 40px;
     
 }
     
@@ -17,11 +18,17 @@
 }
 
 .profile__content{
-   display: flex;
-    
+   display: grid;
+   grid-template-areas: 
+   "name" "button"
+   "description"; 
+   grid-template-columns: 1.5fr 1fr ;
+   grid-template-rows: 1fr ;
+   place-items: start;
 
 }
 .profile__name{
+    grid-area: "name";
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 18px;
@@ -34,6 +41,7 @@
 }
 
 .profile__description{
+    grid-area: "description";
     margin-top: 16px;
     display: inline-flex;
     flex-direction: column;
@@ -45,26 +53,28 @@
 }
 
 .profile__button_edit {
+    grid-area: "button";
     margin-top: 15px;
     width: 24px;
     height: 24px;
-    margin-left: auto;
+    margin-left: 0;
     background-color: transparent;
     border: 2px solid white;
     cursor: pointer;
     display: flex;
+    
     align-items: center;
     justify-content: center;
 }
 
-/* Estilizando a imagem do SVG dentro do botão */
+
 .profile__button_edit img {
-    width: 12px; /* Ajuste conforme necessário */
+    width: 12px; 
     height: 12px;
-    filter: brightness(0) invert(1); /* Transforma o SVG em branco */
+    filter: brightness(0) invert(1); 
 }
 
-/* Efeito hover na borda E no SVG */
+
 .profile__button_edit:hover {
     border: 2px solid #ffffff50;
 }
@@ -105,6 +115,13 @@
     margin-top: 36.25px ;}
 
 }
+
+.profile__name{
+    font-size: 36px;
+    
+}
+
+
 
 @media (max-width: 320px) {
 

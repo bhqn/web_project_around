@@ -17,7 +17,7 @@
     position: relative;
     top:50%;
     background-color: white;
-    max-width: 430px; /* Largura máxima conforme seu design */
+    max-width: 430px; 
     margin: auto;
     padding-left: 34px;
     padding-top: 36px;
@@ -41,7 +41,7 @@
 .edit__tittle{
     color: black;
     margin: 0 0 54px 0;
-    font-family: Inter;
+    
     font-weight: 900;
     font-size: 24px;
     line-height: 100%;
