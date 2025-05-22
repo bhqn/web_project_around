@@ -112,6 +112,23 @@
 
 }
 
+@media (max-width: 800px) {
+    .edit__card{
+    position:absolute;
+    top: 50%;
+    left:10%;
+    background-color: white;
+    max-width: 430px;
+    width: 430px;
+    margin: 0 auto;
+    padding-top: 34px;
+    padding-bottom: 36.51px;
+    padding-left: 36px;
+    border-radius: 10px;
+}
+
+}
+
 @media (max-width: 320px) {
 
 .edit {
