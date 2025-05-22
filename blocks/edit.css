@@ -8,21 +8,34 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000; 
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
 }
 
-.edit__card{
-    position:absolute;
-    top: 50%;
-    left: 30%;
+.edit__card {
+    position: relative;
+    top:50%;
     background-color: white;
-    max-width: 430px;
-    width: 430px;
-    margin: 0 auto;
-    padding-top: 34px;
+    max-width: 430px; /* Largura máxima conforme seu design */
+    margin: auto;
+    padding-left: 34px;
+    padding-top: 36px;
+    padding-right: 34px;
     padding-bottom: 36.51px;
-    padding-left: 36px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    
+}
+
+.edit__button_content{
+    position: relative;
+    top:50%;
+    width: 430px;
+    margin: auto;
 }
 
 .edit__tittle{
@@ -33,15 +46,19 @@
     font-size: 24px;
     line-height: 100%;
     letter-spacing: 0;
+    max-width: 330px ;
 
 }
 
 
 .edit__form{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 358px;
+    max-width: 430px;
     margin: 0;
     border: none;
+    
 
 }
 
@@ -78,6 +95,7 @@
     background-color: black;
     color: white;
     height: 50.15px;
+    margin: auto;
     margin-top: 48px;
     font-weight: 400;
     font-size: 18px;
@@ -86,15 +104,22 @@
     text-align: center;
     cursor: pointer;
     background-size: cover;
+    cursor: pointer;
 
 
 
 }
 
+.edit__button_content{
+    position: relative;
+    top:50%;
+    width: 430px;
+    margin: auto;
+}
+
 .edit__button_close{
-    position:absolute;
-    top: 45%;
-    left:70%;
+    position:relative;
+    left: 80px;
     display: flex;
     justify-self: flex-end;
     background-image: url('../images/Close.png');
@@ -114,13 +139,12 @@
 
 @media (max-width: 800px) {
     .edit__card{
-    position:absolute;
     top: 50%;
-    left:10%;
+    
     background-color: white;
     max-width: 430px;
-    width: 430px;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto;
     padding-top: 34px;
     padding-bottom: 36.51px;
     padding-left: 36px;
@@ -149,7 +173,6 @@
     background-color: white;
     width: 100%; 
     max-width: 282px; 
-    left: 6%;
     justify-content: center;
     padding: 25px 22px; 
     box-sizing: border-box;
@@ -177,9 +200,16 @@
 
 }
 
+.edit__button_content{
+    position: relative;
+    top:5%;
+    width: 280px;
+    margin: auto;
+}
+
 .edit__button_close{
     position: relative;
-    left: -10%;
+    left:0;
     width: 26px;
     height: 26px;
     margin-bottom: 13.62px;
@@ -189,6 +219,18 @@
 
 }
 
+
+
+
+}
+
+.edit__button{
+  
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0;
+text-align: center;
 
 
 
