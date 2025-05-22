@@ -31,7 +31,7 @@
     
 }
 
-.edit__button_content{
+.edit__button{
     position: relative;
     top:50%;
     width: 430px;
@@ -51,7 +51,7 @@
 }
 
 
-.edit__form{
+.form{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -110,14 +110,14 @@
 
 }
 
-.edit__button_content{
+.edit__button{
     position: relative;
     top:50%;
     width: 430px;
     margin: auto;
 }
 
-.edit__button_close{
+.edit__button-close{
     position:relative;
     left: 80px;
     display: flex;
@@ -131,7 +131,7 @@
     transform: rotate(deg)
 }
 
-.edit__button_close:hover{
+.edit__button-close:hover{
     cursor: pointer;
     opacity: 60%;
 
@@ -192,7 +192,7 @@
 
 }
 
-    .edit__form{
+    .form{
     width: 100%;
     max-width: 238px;
     margin: 0;
@@ -200,14 +200,14 @@
 
 }
 
-.edit__button_content{
+.edit__button{
     position: relative;
     top:5%;
     width: 280px;
     margin: auto;
 }
 
-.edit__button_close{
+.edit__button-close{
     position: relative;
     left:0;
     width: 26px;
