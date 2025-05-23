@@ -15,7 +15,7 @@
 
 .edit__card {
     position: relative;
-    top:50%;
+    top:30%;
     background-color: white;
     max-width: 430px; 
     margin: auto;
@@ -33,9 +33,10 @@
 
 .edit__button{
     position: relative;
-    top:50%;
+    top:30%;
     width: 430px;
     margin: auto;
+    
 }
 
 .edit__tittle{
@@ -110,12 +111,6 @@
 
 }
 
-.edit__button{
-    position: relative;
-    top:50%;
-    width: 430px;
-    margin: auto;
-}
 
 .edit__button-close{
     position:relative;
@@ -138,9 +133,13 @@
 }
 
 @media (max-width: 800px) {
+
+    .edit__button-close{
+    left: 0;
+    }
+
     .edit__card{
-    top: 50%;
-    
+    top: 30%;
     background-color: white;
     max-width: 430px;
     width: 100%;
@@ -151,11 +150,19 @@
     border-radius: 10px;
 }
 
+.edit__button{
+    position: relative;
+    top:30%;
+    width: 430px;
+    margin: auto;
 }
 
-.edit__button-close{
-    left: 0;
+
+
+
+
 }
+
 
 @media (max-width: 320px) {
 
