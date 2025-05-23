@@ -4,7 +4,7 @@ const closeButton = document.getElementById("buttonclose");
 
 const inputName = document.querySelector('.form__input_name');
 const inputDescription = document.querySelector('.form__input_description');
-const form = document.querySelector('.edit__form');
+const form = document.querySelector('.form');
 
 // Elementos onde os valores serão exibidos
 const displayName = document.querySelector('.profile__name'); 
