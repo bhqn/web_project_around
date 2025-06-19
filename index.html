@@ -32,61 +32,35 @@
                 </div>
                 <button class=" profile__button-edit" id="open__button_edit"><img class="profile__button-icon" src="./images/pencil.png" alt="botão editar"></button>
                 </div>
-                <button class="profile__button-add"><img class="button-add-icon" src="./images/add.png" alt="adicionar"></button>
+                <button class="profile__button-add" id="add__button"><img class="button-add-icon" src="./images/add.png" alt="adicionar"></button>
             </section>
-            <section class="gallery">
-                <div class="gallery__card">
-                        <img src="./images/image1.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Vale de Yosemite</p>
-                        <button class="card__button"></button>
-                        </div> 
-                </div>
-                <div class="gallery__card">
-                        <img src="./images/image2.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Lago Louise</p>
-                       <button class="card__button"></button>
-                        </div> 
-                </div>
-                <div class="gallery__card">
-                        <img src="./images/image3.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Montanhas Care...</p>
-                       <button class="card__button"></button>
-                        </div> 
-                </div>
-                <div class="gallery__card">
-                        <img src="./images/image4.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Latemar</p>
-                       <button class="card__button"></button>
-                        </div> 
-                </div>
-                <div class="gallery__card">
-                        <img src="./images/image5.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Parque Nacional...</p>
-                        <button class="card__button"><img class="card__button-icon" src="./images/like.svg" alt="like"></button>
-                        </div> 
-                </div>
-                <div class="gallery__card">
-                        <img src="./images/image6.jpg" alt="" class="gallery__image">
-                   
-                        <div class="card">
-                        <p class="card__title">Lago di Braies</p>
-                       <button class="card__button"></button>
-                        </div> 
-                </div>
+            <section class="gallery" id="gallery-container">
+    
+
+              
+
+            <!--
+              TEMPLATE
+                 -->
+
+              <template id="gallery__template">
+              <div class="gallery__card" >
+              <button class="card__button-remove" id="removeButton"></button>
+              <img src="${link}" alt="${name}" class="gallery__image">
+              <div class="card">
+              <p class="card__title">${name}</p>
+              <button class="card__button"></button>
+              </div>
+              </template>
+    
+
 
 
             </section>
 
+
+
+            
             <section class="edit" id="editCard"> 
                 <div class="edit__button">
                 <button class="edit__button-close" id="buttonclose"></button>
@@ -104,9 +78,34 @@
                 </div>
             </section>
 
+         
+  <section class="edit" id="addCard">
+    <h1 class="edit__tittle">Novo Lugar</h1>
+    <div class="edit__button">
+      <button class="edit__button-close" id="closeAddButton"></button>
+    </div>
+    <div class="edit__card">
+      <h1 class="edit__tittle"></h1>
+      <form class="form">
+        <fieldset class="form__fieldset">
+          <input class="form__input form__input_name" name="name" type="text" placeholder="Título">
+          <input class="form__input form__input_description" name="description" type="text" placeholder=" Url da Imagem">
+        </fieldset>
+        <button class="edit__button-save">Salvar</button>
+      </form>
+    </div>
+  </section>
+
+         
+
+
+
         </main>
         <footer class="footer"><p class="footer__paragraph">© 2024 Around The U.S.</p></footer>
     </div>
     <script src="./scripts/index.js" ></script>
+    <script src="./scripts/addbutton.js" ></script>
+    
+    <script src="./scripts/cardtemplate.js" ></script>
 </body>
 </html>

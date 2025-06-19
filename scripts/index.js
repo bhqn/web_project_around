@@ -32,3 +32,5 @@ function handleFormSubmit(evt) {
 
 // Adiciona o event listener ao formulário
 form.addEventListener('submit', handleFormSubmit);
+
+

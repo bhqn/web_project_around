@@ -7,6 +7,28 @@
 
 }
 
+  .card__button-remove{
+  margin-top: 18px;
+  margin-right: 15px;
+  position: absolute;
+  align-self: end;
+  background-color: #ffff;
+  width: 18px;
+  height: 19.3px;
+  background: url('../images/Trash.svg') no-repeat center;
+  background-size: contain;
+  stroke: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  
+
+  }
+
+
+
 .card__button {
   width: 24px;
   height: 24px;
