@@ -47,3 +47,10 @@
 
   // Gerar todos os cards
   initialCards.forEach(createGalleryCard);
+
+
+  //abrir imagem
+
+  
+
+  

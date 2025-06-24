@@ -29,12 +29,20 @@
 }
 
 .gallery__image{
+    cursor: pointer;
     object-fit: cover;
     width: 282px;
     height: 282px;
     overflow: hidden;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
+
+}
+
+
+.gallery__image:hover{
+
 
 
 }
