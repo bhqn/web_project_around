@@ -49,3 +49,39 @@
     transform: rotate(deg)
 
 }
+
+.popup__title{
+    font-family: Inter;
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+
+
+@media (max-width: 800px) {
+
+}
+
+@media (max-width: 320px) {
+   
+   
+    .popup__image{
+    
+    width: 230px;
+    height: 100%;
+    max-height: 299px;
+    }
+
+.popup__button-close{
+    width: 30px;
+    height: 29.30px;
+    left: 0;
+    bottom: 5px;
+
+
+
+}
+    
+}

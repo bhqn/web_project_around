@@ -86,9 +86,12 @@
 }
 
 
-.form__input_name{
+.form__input_name,
+.form__input_place {
     margin-bottom: 29.4px ;
 }
+
+
 
 .edit__button-save{
     width: 100%;
