@@ -1,124 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
-    name="description"
-    content="Projeto do sprint 7: Around"
-  />
-    <meta
-    name="keywords"
-    content="around, social-media, gallery, tripleten"
-  />
-  
-  <link rel="stylesheet" href="./pages/index.css" />
-   <link rel="shortcut icon" href="./favicon.ico" />
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projeto do sprint 7: Around" />
+    <meta name="keywords" content="around, social-media, gallery, tripleten" />
+
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+
     <title>WEB Project Around</title>
-</head>
-<body class="body">
+  </head>
+  <body class="body">
     <div class="page">
-        <header class="header">
-            <img class="logo" src="./images/logo.png" alt="logo around">
-        </header>
-        <main class="main">
-            <section class="profile">
-                <img class="profile__picture" src="./images/perfil-image.jpg" alt="imagem de perfil">
-                <div class="profile__content">
-                <div class="profile__info">
-                <h1 class="profile__name"> Jacques Cousteu</h1>
-                <p class="profile__description">Explorador</p>
-                </div>
-                <button class=" profile__button-edit" id="open__button_edit"><img class="profile__button-icon" src="./images/pencil.png" alt="botão editar"></button>
-                </div>
-                <button class="profile__button-add" id="add__button"><img class="button-add-icon" src="./images/add.png" alt="adicionar"></button>
-            </section>
-            <section class="gallery" id="gallery-container">
-    
-
-              
-
-            <!--
+      <header class="header">
+        <img class="logo" src="./images/logo.png" alt="logo around" />
+      </header>
+      <main class="main">
+        <section class="profile">
+          <img
+            class="profile__picture"
+            src="./images/perfil-image.jpg"
+            alt="imagem de perfil"
+          />
+          <div class="profile__content">
+            <div class="profile__info">
+              <h1 class="profile__name">Jacques Cousteu</h1>
+              <p class="profile__description">Explorador</p>
+            </div>
+            <button class="profile__button-edit" id="open__button_edit">
+              <img
+                class="profile__button-icon"
+                src="./images/pencil.png"
+                alt="botão editar"
+              />
+            </button>
+          </div>
+          <button class="profile__button-add" id="add__button">
+            <img
+              class="button-add-icon"
+              src="./images/add.png"
+              alt="adicionar"
+            />
+          </button>
+        </section>
+        <section class="gallery" id="gallery-container">
+          <!--
               TEMPLATE
                  -->
 
-              <template id="gallery__template">
-              <div class="gallery__card" >
+          <template id="gallery__template">
+            <div class="gallery__card">
               <button class="card__button-remove" id="removeButton"></button>
-              <img src="${link}" alt="${name}" class="gallery__image"/>
-              
+              <img src="${link}" alt="${name}" class="gallery__image" />
+
               <div class="card">
-              <p class="card__title">${name}</p>
-              <button class="card__button"></button>
+                <p class="card__title">${name}</p>
+                <button class="card__button"></button>
               </div>
-              </div>
-              </template>
-    
+            </div>
+          </template>
+        </section>
 
+        <section class="edit" id="editCard">
+          <div class="edit__button">
+            <button class="edit__button-close" id="buttonclose"></button>
+          </div>
 
+          <div class="edit__card">
+            <h1 class="edit__tittle">Edit perfil</h1>
+            <form class="form">
+              <fieldset class="form__fieldset">
+                <input
+                  class="form__input form__input_name"
+                  name="name"
+                  type="text"
+                  placeholder="Jacques Cousteu"
+                  maxlength="20"
+                />
+                <input
+                  class="form__input form__input_description"
+                  name="description"
+                  type="text"
+                  placeholder="Explorador"
+                  maxlength="20"
+                />
+              </fieldset>
+              <button class="edit__button-save">Salvar</button>
+            </form>
+          </div>
+        </section>
 
-            </section>
+        <section class="edit" id="addCard">
+          <div class="edit__button">
+            <button class="edit__button-close" id="closeAddButton"></button>
+          </div>
+          <div class="edit__card">
+            <h1 class="edit__tittle">Novo Lugar</h1>
+            <form class="form" id="form__place">
+              <fieldset class="form__fieldset">
+                <input
+                  class="form__input form__input_place"
+                  name="name"
+                  type="text"
+                  placeholder="Título"
+                />
+                <input
+                  class="form__input form__input_src"
+                  name="description"
+                  type="text"
+                  placeholder=" Url da Imagem"
+                />
+              </fieldset>
+              <button class="edit__button-save" id="save__place">Salvar</button>
+            </form>
+          </div>
+        </section>
 
-
-
-            
-            <section class="edit" id="editCard"> 
-                <div class="edit__button">
-                <button class="edit__button-close" id="buttonclose"></button>
-                </div>
-
-              <div class="edit__card">
-                    <h1 class="edit__tittle">Edit perfil</h1>
-                    <form class="form">
-                        <fieldset class="form__fieldset">
-                        <input class= "form__input form__input_name" name="name" type="text" placeholder="Jacques Cousteu" maxlength="20">
-                        <input class= "form__input form__input_description" name= "description" type="text" placeholder="Explorador" maxlength="20">
-                        </fieldset>
-                        <button class="edit__button-save"> Salvar</button>
-                    </form>
-                </div>
-            </section>
-
-         
-  <section class="edit" id="addCard">
-    
-    <div class="edit__button">
-      <button class="edit__button-close" id="closeAddButton"></button>
+        <section class="popup">
+          <div class="popup__container">
+            <div class="popup__image-align">
+              <button
+                class="popup__button-close"
+                id="closePopUpButton"
+              ></button>
+              <img src="" class="popup__image" />
+              <h1 class="popup__title"></h1>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__paragraph">© 2024 Around The U.S.</p>
+      </footer>
     </div>
-    <div class="edit__card">
-      <h1 class="edit__tittle">Novo Lugar</h1>
-      <form class="form" id="form__place">
-        <fieldset class="form__fieldset">
-          <input class="form__input form__input_place" name="name" type="text" placeholder="Título">
-          <input class="form__input form__input_src" name="description" type="text" placeholder=" Url da Imagem">
-        </fieldset>
-        <button class="edit__button-save" id ="save__place">Salvar</button>
-      </form>
-    </div>
-  </section>
-
-
-  <section class = "popup">
-    <div class ="popup__container">
-    
-    <div class="popup__image-align">
-    <button class="popup__button-close" id="closePopUpButton"></button>
-    <img src=""  class="popup__image"/>
-    <h1 class="popup__title"> </h1>
-    </div>
-    </div>
-  </section>
-
-         
-
-
-
-        </main>
-        <footer class="footer"><p class="footer__paragraph">© 2024 Around The U.S.</p></footer>
-    </div>
-    <script src="./scripts/index.js" ></script>
-    
-    
-</body>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>

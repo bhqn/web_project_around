@@ -1,147 +1,130 @@
 .edit {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    margin: 0;
-    padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
 }
 
 .edit__card {
-    position: relative;
-    top:30%;
-    background-color: white;
-    max-width: 430px; 
-    margin: auto;
-    padding-left: 34px;
-    padding-top: 36px;
-    padding-right: 34px;
-    padding-bottom: 36.51px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    
+  position: relative;
+  top: 30%;
+  background-color: white;
+  max-width: 430px;
+  margin: auto;
+  padding-left: 34px;
+  padding-top: 36px;
+  padding-right: 34px;
+  padding-bottom: 36.51px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.edit__button{
-    position: relative;
-    top:30%;
-    width: 430px;
-    margin: auto;
-    
+.edit__button {
+  position: relative;
+  top: 30%;
+  width: 430px;
+  margin: auto;
 }
 
-.edit__tittle{
-    color: black;
-    margin: 0 0 54px 0;
-    
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 100%;
-    letter-spacing: 0;
-    max-width: 330px ;
+.edit__tittle {
+  color: black;
+  margin: 0 0 54px 0;
 
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  max-width: 330px;
 }
 
-
-.form{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 430px;
-    margin: 0;
-    border: none;
-    
-
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  margin: 0;
+  border: none;
 }
 
-.form__fieldset{
-    border: none;
-    padding: 0;
-    margin: 0;
+.form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-.form__input{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #545454;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0;
-    padding-bottom: 13.26px;
-
+.form__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #545454;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  padding-bottom: 13.26px;
 }
 
-.form__input:focus{
-    outline: none;
+.form__input:focus {
+  outline: none;
 }
-
 
 .form__input_name,
 .form__input_place {
-    margin-bottom: 29.4px ;
+  margin-bottom: 29.4px;
 }
 
-
-
-.edit__button-save{
-    width: 100%;
-    max-width: 358px;
-    background-color: black;
-    color: white;
-    height: 50.15px;
-    margin: auto;
-    margin-top: 48px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    cursor: pointer;
-    background-size: cover;
-    cursor: pointer;
-
-
-
+.edit__button-save {
+  width: 100%;
+  max-width: 358px;
+  background-color: black;
+  color: white;
+  height: 50.15px;
+  margin: auto;
+  margin-top: 48px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+  background-size: cover;
+  cursor: pointer;
 }
 
-
-.edit__button-close{
-    position:relative;
-    left: 80px;
-    display: flex;
-    justify-self: flex-end;
-    background-image: url('../images/Close.png');
-    background-repeat: no-repeat;
-    border: none;
-    background-color: #54545400;
-    width: 40px;
-    height: 40px;
-    transform: rotate(deg)
+.edit__button-close {
+  position: relative;
+  left: 80px;
+  display: flex;
+  justify-self: flex-end;
+  background-image: url("../images/Close.png");
+  background-repeat: no-repeat;
+  border: none;
+  background-color: #54545400;
+  width: 40px;
+  height: 40px;
+  transform: rotate(deg);
 }
 
-.edit__button-close:hover{
-    cursor: pointer;
-    opacity: 60%;
-
+.edit__button-close:hover {
+  cursor: pointer;
+  opacity: 60%;
 }
 
 @media (max-width: 800px) {
-
-    .edit__button-close{
+  .edit__button-close {
     left: 0;
-    }
+  }
 
-    .edit__card{
+  .edit__card {
     top: 30%;
     background-color: white;
     max-width: 430px;
@@ -151,25 +134,18 @@
     padding-bottom: 36.51px;
     padding-left: 36px;
     border-radius: 10px;
-}
+  }
 
-.edit__button{
+  .edit__button {
     position: relative;
-    top:30%;
+    top: 30%;
     width: 430px;
     margin: auto;
+  }
 }
-
-
-
-
-
-}
-
 
 @media (max-width: 320px) {
-
-.edit {
+  .edit {
     position: fixed;
     top: 0;
     left: 0;
@@ -181,20 +157,19 @@
     padding: 0;
     margin: 0;
     max-width: none;
-}
+  }
 
-.edit__card {
+  .edit__card {
     background-color: white;
-    width: 100%; 
-    max-width: 282px; 
+    width: 100%;
+    max-width: 282px;
     justify-content: center;
-    padding: 25px 22px; 
+    padding: 25px 22px;
     box-sizing: border-box;
     top: 123px;
-    
-}
+  }
 
-    .edit__tittle{
+  .edit__tittle {
     color: black;
     margin: 0 0 54px 0;
     width: 100%;
@@ -203,49 +178,37 @@
     font-size: 24px;
     line-height: 100%;
     letter-spacing: 0;
+  }
 
-}
-
-    .form{
+  .form {
     width: 100%;
     max-width: 238px;
     margin: 0;
     border: none;
+  }
 
-}
-
-.edit__button{
+  .edit__button {
     position: relative;
-    top:5%;
+    top: 5%;
     width: 280px;
     margin: auto;
-}
+  }
 
-.edit__button-close{
+  .edit__button-close {
     position: relative;
-    left:0;
+    left: 0;
     width: 26px;
     height: 26px;
     margin-bottom: 13.62px;
     background-size: cover;
     top: 72.62px;
-    
-
+  }
 }
 
-
-
-
-}
-
-.edit__button{
-  
-font-weight: 400;
-font-size: 14px;
-line-height: 100%;
-letter-spacing: 0;
-text-align: center;
-
-
-
+.edit__button {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
 }
