@@ -1,7 +1,6 @@
 const openButton = document.getElementById("open__button_edit");
 const editCard = document.getElementById("editCard");
 const closeButton = document.getElementById("buttonclose");
-
 const inputName = document.querySelector('.form__input_name');
 const inputDescription = document.querySelector('.form__input_description');
 const form = document.querySelector('.form');
@@ -64,29 +63,25 @@ form.addEventListener('submit', handleFormSubmit);
   function createGalleryCard({ name, link }) {
     const template = document.getElementById('gallery__template');
     const clone = template.content.cloneNode(true);
-
     const image = clone.querySelector('.gallery__image');
     const title = clone.querySelector('.card__title');
     const removeButton = clone.querySelector('.card__button-remove');
-
-
-
     image.src = link;
     image.alt = name;
     title.textContent = name;
 
  // configuração do botao de like
 
-    const likeButton = clone.querySelector('.card__button');
-likeButton.addEventListener('click', () => {
+  const likeButton = clone.querySelector('.card__button');
+  likeButton.addEventListener('click', () => {
   likeButton.classList.toggle('card__button--active');
 });
 
 
 // configuração botao de remove
     removeButton.addEventListener('click', () => {
-        removeButton.closest('.gallery__card').remove();
-      console.log("remove");
+    removeButton.closest('.gallery__card').remove();
+    console.log("remove");
     });
 
 
@@ -98,7 +93,7 @@ likeButton.addEventListener('click', () => {
 
     // nomeando cards do popup
     popupImage.src = link;
-    popupTitle.alt = name;
+    popupImage.alt = name;
     popupTitle.textContent = name;
     
     popup.style.display = "block";
@@ -106,13 +101,7 @@ likeButton.addEventListener('click', () => {
 
   
   });
-
-
-
-    
-
-
-    document.querySelector('.gallery').prepend(clone);
+  document.querySelector('.gallery').prepend(clone);
   }
 
   // Gerar todos os cards
@@ -128,7 +117,7 @@ const popup = document.querySelector(".popup");
 
 
 closeButtonPopup.onclick = () => {
-    popup.style.display = "none";
+popup.style.display = "none";
 };
 
 
@@ -141,7 +130,7 @@ const closeAddButton = document.getElementById("closeAddButton");
 const placeInput = document.querySelector(".form__input_place");
 const srcInput = document.querySelector(".form__input_src");
 const savePlace = document.getElementById("save__place");
-const placeForm  = document.querySelector (".form__place");
+const placeForm  = document.getElementById ("form__place");
 
 
 //abrir card
@@ -151,13 +140,10 @@ addButton.onclick = () => addCard.style.display = 'block';
 closeAddButton.onclick = () => addCard.style.display = 'none';
 
 // adicionar card via formualario
-
-
-
 // evento de salvar formulario
 
 placeForm.addEventListener("submit", function(event){
-  event.preventDefault(); //serve para imperdir o recarregamento da pagina
+event.preventDefault(); //serve para imperdir o recarregamento da pagina
 
 const place = placeInput.value.trim(); //tira espaços vazios do inicio e do final caso o usuario coloque
 const link = srcInput.value.trim(); //tira espaços vazios do inicio e do final caso o usuario coloque
