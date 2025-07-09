@@ -77,7 +77,16 @@
   outline: none;
 }
 
-.form__input_name,
+.form__input_name {
+  margin-bottom: 0;
+}
+
+.form__group_name{
+  margin-bottom: 29.4px;
+
+}
+
+
 .form__input_place {
   margin-bottom: 29.4px;
 }
@@ -99,6 +108,23 @@
   background-size: cover;
   cursor: pointer;
 }
+
+.edit__button-save:disabled{
+   background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+  .form__error {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 4px;
+  }
+
+  .form__error.active {
+    display: block;
+  }
 
 .edit__button-close {
   position: relative;

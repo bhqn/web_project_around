@@ -8,9 +8,14 @@ const form = document.querySelector(".form");
 // Elementos onde os valores serão exibidos
 const displayName = document.querySelector(".profile__name");
 const displayDescription = document.querySelector(".profile__description");
+
+
 // Abre o form
 openButton.onclick = function () {
   editCard.style.display = "block";
+  
+
+  
 };
 
 // Fecha o form

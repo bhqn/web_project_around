@@ -70,23 +70,32 @@
           <div class="edit__card">
             <h1 class="edit__tittle">Edit perfil</h1>
             <form class="form">
+              
               <fieldset class="form__fieldset">
+                <div class="form__group_name">
                 <input
                   class="form__input form__input_name"
                   name="name"
                   type="text"
-                  placeholder="Jacques Cousteu"
-                  maxlength="20"
+                  placeholder="Nome"
+                  minlength="2"
+                  maxlength="40"
                 />
+                <small class="form__error"></small>
+                </div>
+                <div  class="form__group_description">
                 <input
                   class="form__input form__input_description"
                   name="description"
                   type="text"
-                  placeholder="Explorador"
-                  maxlength="20"
+                  placeholder="Description"
+                  minlength="2"
+                  maxlength="40"
                 />
+                 <small class="form__error"></small>
+                 </div>
               </fieldset>
-              <button class="edit__button-save">Salvar</button>
+              <button class="edit__button-save" disabled>Salvar</button>
             </form>
           </div>
         </section>
@@ -135,5 +144,6 @@
       </footer>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
