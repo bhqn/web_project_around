@@ -47,7 +47,7 @@
         <section class="gallery" id="gallery-container">
           <!--
               TEMPLATE
-                  -->
+                 -->
 
           <template id="gallery__template">
             <div class="gallery__card">
@@ -70,30 +70,29 @@
           <div class="edit__card">
             <h1 class="edit__tittle">Edit perfil</h1>
             <form class="form">
-              
               <fieldset class="form__fieldset">
                 <div class="form__group_name">
-                <input
-                  class="form__input form__input_name"
-                  name="name"
-                  type="text"
-                  placeholder="Nome"
-                  minlength="2"
-                  maxlength="40"
-                />
-                <small class="form__error"></small>
+                  <input
+                    class="form__input form__input_name"
+                    name="name"
+                    type="text"
+                    placeholder="Nome"
+                    minlength="2"
+                    maxlength="40"
+                  />
+                  <small class="form__error"></small>
                 </div>
-                <div  class="form__group_description">
-                <input
-                  class="form__input form__input_description"
-                  name="description"
-                  type="text"
-                  placeholder="Description"
-                  minlength="2"
-                  maxlength="40"
-                />
-                 <small class="form__error"></small>
-                 </div>
+                <div class="form__group_description">
+                  <input
+                    class="form__input form__input_description"
+                    name="description"
+                    type="text"
+                    placeholder="Description"
+                    minlength="2"
+                    maxlength="40"
+                  />
+                  <small class="form__error"></small>
+                </div>
               </fieldset>
               <button class="edit__button-save" disabled>Salvar</button>
             </form>
@@ -108,20 +107,34 @@
             <h1 class="edit__tittle">Novo Lugar</h1>
             <form class="form" id="form__place">
               <fieldset class="form__fieldset">
-                <input
-                  class="form__input form__input_place"
-                  name="name"
-                  type="text"
-                  placeholder="Título"
-                />
-                <input
-                  class="form__input form__input_src"
-                  name="description"
-                  type="text"
-                  placeholder=" Url da Imagem"
-                />
+                <div class="form__group">
+                  <input
+                    class="form__input form__input_place"
+                    name="place"
+                    type="text"
+                    placeholder="Título"
+                    minlength="2"
+                    maxlength="40"
+                    required
+                  />
+                  <small class="form__error"></small>
+                </div>
+                <div class="form__group">
+                  <input
+                    class="form__input form__input_src"
+                    name="image"
+                    type="url"
+                    placeholder="Url da Imagem"
+                    minlength="5"
+                    maxlength="300"
+                    required
+                  />
+                  <small class="form__error"></small>
+                </div>
               </fieldset>
-              <button class="edit__button-save" id="save__place">Salvar</button>
+              <button class="edit__button-save" id="save__place" disabled>
+                Salvar
+              </button>
             </form>
           </div>
         </section>
@@ -147,4 +160,5 @@
     <script src="./scripts/validation.js"></script>
   </body>
 </html>
+
 
