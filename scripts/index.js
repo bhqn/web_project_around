@@ -157,4 +157,10 @@ placeForm.addEventListener("submit", function (event) {
   }
 });
  
-//
+document.querySelectorAll('.edit').forEach(modal => {
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) { // Verifica se clicou no próprio modal (fora do conteúdo)
+      this.style.display = 'none';
+    }
+  });
+});
