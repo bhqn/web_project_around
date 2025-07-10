@@ -1,4 +1,3 @@
-// validate.js
 
 function enableValidation(config) {
   const forms = document.querySelectorAll(config.formSelector);
