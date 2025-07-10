@@ -11,17 +11,17 @@ const displayDescription = document.querySelector(".profile__description");
 
 
 // Abre o form
-openButton.onclick = function () {
+openButton.addEventListener("click" , function () {
   editCard.style.display = "block";
   
 
   
-};
+});
 
 // Fecha o form
-closeButton.onclick = function () {
+closeButton.addEventListener("click", function () {
   editCard.style.display = "none";
-};
+})
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -113,9 +113,9 @@ const closeButtonPopup = document.getElementById("closePopUpButton");
 const openPopup = document.querySelector(".gallery__image");
 const popup = document.querySelector(".popup");
 
-closeButtonPopup.onclick = () => {
+closeButtonPopup.addEventListener("click" , function () {
   popup.style.display = "none";
-};
+});
 
 // abrir add image
 
@@ -128,10 +128,10 @@ const savePlace = document.getElementById("save__place");
 const placeForm = document.getElementById("form__place");
 
 //abrir card
-addButton.onclick = () => (addCard.style.display = "block");
+addButton.addEventListener("click" , function () {addCard.style.display = "block"});
 
 // fechar card
-closeAddButton.onclick = () => (addCard.style.display = "none");
+closeAddButton.addEventListener("click" , function () {addCard.style.display = "none"});
 
 // adicionar card via formualario
 // evento de salvar formulario
@@ -164,7 +164,6 @@ document.querySelectorAll('.modal').forEach(modal => {
     }
   });
 });
-
 
 
 
