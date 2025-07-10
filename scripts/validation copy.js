@@ -43,29 +43,22 @@ function enableValidation(config) {
       return isValid;
     }
 
-function validateForm() {
-  const inputs = document.querySelectorAll('.form__input'); // se ainda não tiver definido
-  const inputsArray = Array.from(inputs); // garante que é array
+    function validateForm() {
+      let allValid = true;
+      
+      inputs.forEach((input) => {
+        const isValid = validateInput(input);
+        if (!isValid) {
+          allValid = false;
+        }
+      });
 
-  
-
-  const hasInvalid = inputsArray.some((input, index) => {
-    const isValid = validateInput(input);
-    return !isValid;
-  });
-
-  if (submitButton) {
-    submitButton.disabled = hasInvalid;
-    submitButton.classList.toggle(config.inactiveButtonClass, hasInvalid);
-
-   
-  } else {
-    console.warn("Botão submitButton não encontrado.");
-  }
-
-  return !hasInvalid;
-}
-
+      if (submitButton) {
+        submitButton.disabled = !allValid;
+        submitButton.classList.toggle(config.inactiveButtonClass, !allValid);
+      }
+      return allValid;
+    }
 
     inputs.forEach((input) => {
       const name = input.name;
