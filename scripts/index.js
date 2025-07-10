@@ -156,3 +156,4 @@ placeForm.addEventListener("submit", function (event) {
     createGalleryCard(newCard);
   }
 });
+ //
