@@ -122,7 +122,7 @@ closeButtonPopup.addEventListener("click" , function () {
 const addButton = document.getElementById("add__button");
 const addCard = document.getElementById("addCard");
 const closeAddButton = document.getElementById("closeAddButton");
-const placeInput = document.querySelector(".form__input_place");
+const placeInput = document.querySelector(".form__input-place");
 const srcInput = document.querySelector(".form__input_src");
 const savePlace = document.getElementById("save__place");
 const placeForm = document.getElementById("form__place");

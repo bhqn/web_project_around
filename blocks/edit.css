@@ -81,19 +81,15 @@
   margin-bottom: 0;
 }
 
-.form__group_name{
+.form__group-name{
   margin-bottom: 29.4px;
 
 }
-.form__group_place{
+.form__input-place{
   margin-bottom: 29.4px;
 
 }
 
-
-.form__input_place {
- 
-}
 
 .edit__button-save {
   width: 100%;
@@ -141,7 +137,7 @@
   background-color: #54545400;
   width: 40px;
   height: 40px;
-  transform: rotate(deg);
+  transform: rotate(0deg);
 }
 
 .edit__button-close:hover {

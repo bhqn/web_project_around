@@ -43,7 +43,7 @@
   background-color: #54545400;
   width: 40px;
   height: 40px;
-  transform: rotate(deg);
+  transform: rotate(0deg);
 }
 
 .popup__title {
@@ -51,11 +51,9 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
-@media (max-width: 800px) {
-}
 
 @media (max-width: 320px) {
   .popup__image {
