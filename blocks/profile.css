@@ -23,7 +23,19 @@
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: 1fr;
   place-items: start;
+
 }
+.profile__info{
+    overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 493.64px;
+  
+}
+
+
+
+
 .profile__name {
   grid-area: "name";
   margin-top: 0;
@@ -33,6 +45,8 @@
   font-size: 42px;
   line-height: 48px;
   letter-spacing: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__description {
@@ -44,6 +58,8 @@
   font-size: 18px;
   line-height: 100%;
   letter-spacing: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__button-edit {

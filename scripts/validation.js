@@ -17,31 +17,34 @@ function enableValidation(config) {
     }
 
     function validateInput(input) {
-      const value = input.value.trim();
-      const min = parseInt(input.getAttribute("minlength")) || 0;
-      const max = parseInt(input.getAttribute("maxlength")) || Infinity;
-      const errorElement = getErrorElement(input);
-      const name = input.name;
-      const isUrl = input.type === "url";
-      let isValid = true;
+  const value = input.value.trim();
+  const min = parseInt(input.getAttribute("minlength")) || 0;
+  const max = parseInt(input.getAttribute("maxlength")) || Infinity;
+  const errorElement = getErrorElement(input);
+  const name = input.name;
+  const isUrl = input.type === "url";
 
-      if (touched[name] || value.length > 0) {
-        if (value.length === 0) {
-          showError(errorElement, input, config, "O campo deve ser preenchido");
-          isValid = false;
-        } else if (value.length < min || value.length > max) {
-          showError(errorElement, input, config, `O campo deve ter entre ${min} e ${max} caracteres.`);
-          isValid = false;
-        } else if (isUrl && !isValidUrl(value)) {
-          showError(errorElement, input, config, "Por favor, insira uma URL válida");
-          isValid = false;
-        } else {
-          hideError(errorElement, input, config);
-        }
-      }
-
-      return isValid;
+  if (touched[name] || value.length > 0) {
+    if (value.length === 0) {
+      showError(errorElement, input, config, "O campo deve ser preenchido");
+      return false;
     }
+
+    if (value.length < min || value.length > max) {
+      showError(errorElement, input, config, `O campo deve ter entre ${min} e ${max} caracteres.`);
+      return false;
+    }
+
+    if (isUrl && !isValidUrl(value)) {
+      showError(errorElement, input, config, "Por favor, insira uma URL válida");
+      return false;
+    }
+
+    hideError(errorElement, input, config);
+  }
+
+  return true;
+}
 
 function validateForm() {
   const inputs = document.querySelectorAll('.form__input'); // se ainda não tiver definido
