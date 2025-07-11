@@ -14,11 +14,13 @@
 }
 
 .popup__container {
-  top: 20%;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
+    top: 20%;
+    position: relative;
+    max-width: fit-content;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
 }
 
 .popup__image-align {

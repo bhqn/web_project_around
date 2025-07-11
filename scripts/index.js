@@ -159,7 +159,7 @@ placeForm.addEventListener("submit", function (event) {
  
 document.querySelectorAll('.modal').forEach(modal => {
   modal.addEventListener('click', function(e) {
-    if (e.target === this) { // Verifica se clicou no próprio modal (fora do conteúdo)
+    if (e.target === this || e.target === popup__container) { // Verifica se clicou no próprio modal (fora do conteúdo)
       this.style.display = 'none';
     }
   });
