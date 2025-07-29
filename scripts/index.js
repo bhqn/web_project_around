@@ -1,5 +1,6 @@
 import { Card } from './card.js';
 import { setCardEventListeners } from './utils.js';
+import { FormValidator } from './formValidator.js';
 
 const initialCards = [
   {
@@ -37,3 +38,14 @@ initialCards.forEach(cardData => {
   setCardEventListeners(cardElement, cardData.link, cardData.name); // Eventos via utils.js
   galleryContainer.appendChild(cardElement);
 });
+
+new FormValidator({
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".edit__button-save",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+});
+
+

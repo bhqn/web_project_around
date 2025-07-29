@@ -1,4 +1,6 @@
 
+  /*
+
 function enableValidation(config) {
   const forms = document.querySelectorAll(config.formSelector);
 
@@ -123,7 +125,7 @@ function isValidUrl(string) {
   }
 }
 
-  enableValidation({
+enableValidation({
     formSelector: ".form",
     inputSelector: ".form__input",
     submitButtonSelector: ".edit__button-save",
@@ -131,3 +133,4 @@ function isValidUrl(string) {
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible"
   });
+  */
