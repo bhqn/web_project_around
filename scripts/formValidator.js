@@ -7,9 +7,9 @@ export class FormValidator {
   }
 
   getErrorElement(input) {
-    return input.nextElementSibling?.classList?.contains('form__error')
+    return input.nextElementSibling?.classList?.contains("form__error")
       ? input.nextElementSibling
-      : input.closest('.form__group')?.querySelector('.form__error');
+      : input.closest(".form__group")?.querySelector(".form__error");
   }
 
   isValidUrl(string) {
@@ -25,7 +25,7 @@ export class FormValidator {
     if (errorElement) {
       errorElement.textContent = message;
       errorElement.classList.add(this.config.errorClass);
-      errorElement.style.display = 'block';
+      errorElement.style.display = "block";
     }
     input.classList.add(this.config.inputErrorClass);
   }
@@ -34,7 +34,7 @@ export class FormValidator {
     if (errorElement) {
       errorElement.textContent = "";
       errorElement.classList.remove(this.config.errorClass);
-      errorElement.style.display = 'none';
+      errorElement.style.display = "none";
     }
     input.classList.remove(this.config.inputErrorClass);
   }
@@ -53,7 +53,11 @@ export class FormValidator {
         return false;
       }
       if (value.length < min || value.length > max) {
-        this.showError(errorElement, input, `O campo deve ter entre ${min} e ${max} caracteres.`);
+        this.showError(
+          errorElement,
+          input,
+          `O campo deve ter entre ${min} e ${max} caracteres.`
+        );
         return false;
       }
       if (isUrl && !this.isValidUrl(value)) {
@@ -71,7 +75,10 @@ export class FormValidator {
     const hasInvalid = inputsArray.some((input) => !this.validateInput(input));
     if (submitButton) {
       submitButton.disabled = hasInvalid;
-      submitButton.classList.toggle(this.config.inactiveButtonClass, hasInvalid);
+      submitButton.classList.toggle(
+        this.config.inactiveButtonClass,
+        hasInvalid
+      );
     }
     return !hasInvalid;
   }
@@ -90,8 +97,8 @@ export class FormValidator {
             this.validateForm(form, submitButton);
           }
         };
-        input.addEventListener('focus', markAsTouched);
-        input.addEventListener('input', () => {
+        input.addEventListener("focus", markAsTouched);
+        input.addEventListener("input", () => {
           markAsTouched();
           this.validateInput(input);
           this.validateForm(form, submitButton);

@@ -3,14 +3,12 @@ export class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    
   }
 
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
-      .content
-      .querySelector(".gallery__card")
+      .content.querySelector(".gallery__card")
       .cloneNode(true);
 
     return cardElement;
@@ -25,6 +23,4 @@ export class Card {
     // Eventos ficam em utils.js
     return this._element;
   }
-
 }
-

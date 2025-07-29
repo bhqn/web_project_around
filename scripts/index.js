@@ -1,6 +1,6 @@
-import { Card } from './card.js';
-import { setCardEventListeners } from './utils.js';
-import { FormValidator } from './formValidator.js';
+import { Card } from "./card.js";
+import { setCardEventListeners } from "./utils.js";
+import { FormValidator } from "./formValidator.js";
 
 const initialCards = [
   {
@@ -29,11 +29,10 @@ const initialCards = [
   },
 ];
 
-
 // Adiciona todos os cards na galeria
-const galleryContainer = document.getElementById('gallery-container');
-initialCards.forEach(cardData => {
-  const card = new Card(cardData, '#gallery__template');
+const galleryContainer = document.getElementById("gallery-container");
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#gallery__template");
   const cardElement = card.generateCard();
   setCardEventListeners(cardElement, cardData.link, cardData.name); // Eventos via utils.js
   galleryContainer.appendChild(cardElement);
@@ -45,7 +44,5 @@ new FormValidator({
   submitButtonSelector: ".edit__button-save",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
+  errorClass: "popup__error_visible",
 });
-
-
