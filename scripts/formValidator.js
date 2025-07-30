@@ -69,24 +69,35 @@ export class FormValidator {
     return true;
   }
 
-  validateForm(form, submitButton) {
-    const inputs = form.querySelectorAll(this.config.inputSelector);
-    const inputsArray = Array.from(inputs);
-    const hasInvalid = inputsArray.some((input) => !this.validateInput(input));
+validateForm(form, submitButton) {
+  const inputs = form.querySelectorAll(this.config.inputSelector);
+  const inputsArray = Array.from(inputs);
+
+// desabilita o botao antes de ser tocado
+  const someTouched = inputsArray.some((input) => this.touched[input.name]);
+  if (!someTouched) {
     if (submitButton) {
-      submitButton.disabled = hasInvalid;
-      submitButton.classList.toggle(
-        this.config.inactiveButtonClass,
-        hasInvalid
-      );
+      submitButton.disabled = true;
+      submitButton.classList.add(this.config.inactiveButtonClass);
     }
-    return !hasInvalid;
+    return false;
   }
+
+  const hasInvalid = inputsArray.some((input) => !this.validateInput(input));
+
+  if (submitButton) {
+    submitButton.disabled = hasInvalid;
+    submitButton.classList.toggle(this.config.inactiveButtonClass, hasInvalid);
+  }
+
+  return !hasInvalid;
+}
 
   init() {
     this.forms.forEach((form) => {
       const inputs = form.querySelectorAll(this.config.inputSelector);
       const submitButton = form.querySelector(this.config.submitButtonSelector);
+      submitButton.disabled = true;
       inputs.forEach((input) => {
         const name = input.name;
         this.touched[name] = false;
