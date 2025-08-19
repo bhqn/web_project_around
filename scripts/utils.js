@@ -1,9 +1,9 @@
-import { Card } from "./card.js";
+import { UserInfo } from "./UserInfo.js";
 
 export function setCardEventListeners(cardElement, link, name) {
   // Evento para abrir o popup ao clicar na imagem
   cardElement.querySelector(".gallery__image").addEventListener("click", () => {
-    const popup = document.querySelector(".popup");
+    //const popup = document.querySelector(".popup");
     const popupImage = document.querySelector(".popup__image");
     const popupTitle = document.querySelector(".popup__title");
     const closeButtonPopup = document.getElementById("closePopUpButton");
@@ -52,10 +52,6 @@ const inputName = document.querySelector(".form__input_name");
 const inputDescription = document.querySelector(".form__input_description");
 const form = document.querySelector(".form");
 
-// Elementos onde os valores serão exibidos
-const displayName = document.querySelector(".profile__name");
-const displayDescription = document.querySelector(".profile__description");
-
 // Abre o form
 openButton.addEventListener("click", function () {
   editCard.style.display = "block";
@@ -66,37 +62,26 @@ closeButton.addEventListener("click", function () {
   editCard.style.display = "none";
 });
 
-function handleFormSubmit(evt) {
-  evt.preventDefault();
-
-  // Atualiza os elementos de exibição com os valores dos inputs
-  displayName.textContent = inputName.value;
-  displayDescription.textContent = inputDescription.value;
-
-  // Fecha o formulário após o envio
-  editCard.style.display = "none";
-}
-
 // Adiciona o event listener ao formulário
 form.addEventListener("submit", handleFormSubmit);
 
-const closeButtonPopup = document.getElementById("closePopUpButton");
-const openPopup = document.querySelector(".gallery__image");
+//const closeButtonPopup = document.getElementById("closePopUpButton");
+//const openPopup = document.querySelector(".gallery__image");
 const popup = document.querySelector(".popup");
 
-closeButtonPopup.addEventListener("click", function () {
-  popup.style.display = "none";
-});
+//closeButtonPopup.addEventListener("click", function () {
+//  popup.style.display = "none";
+//});
 
 // abrir add image
 
 const addButton = document.getElementById("add__button");
 const addCard = document.getElementById("addCard");
 const closeAddButton = document.getElementById("closeAddButton");
-const placeInput = document.querySelector(".form__input-place");
-const srcInput = document.querySelector(".form__input_src");
-const savePlace = document.getElementById("save__place");
-const placeForm = document.getElementById("form__place");
+//const placeInput = document.querySelector(".form__input-place");
+//const srcInput = document.querySelector(".form__input_src");
+//const savePlace = document.getElementById("save__place");
+//const placeForm = document.getElementById("form__place");
 
 //abrir card
 addButton.addEventListener("click", function () {
@@ -111,23 +96,31 @@ closeAddButton.addEventListener("click", function () {
 // adicionar card via formualario
 // evento de salvar formulario
 
-const galleryContainer = document.getElementById("gallery-container");
+// Instanciar Section para a galeria
 
-placeForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+// Adicionar novo card via formulário usando Section
 
-  const place = placeInput.value.trim();
-  const link = srcInput.value.trim();
+//parte de USERINFO
 
-  if (place && link) {
-    const newCard = { name: place, link };
-    const card = new Card(newCard, "#gallery__template");
-    const cardElement = card.generateCard();
-    setCardEventListeners(cardElement, link, place);
-    galleryContainer.prepend(cardElement);
+// funcoes do userinfo retiradas  mantive apenas  funcoes de tela e ajustes
+function handleFormSubmit(evt) {
+  evt.preventDefault();
 
-    placeInput.value = "";
-    srcInput.value = "";
-    addCard.style.display = "none";
-  }
+  userInfo.setUserInfo({
+    name: inputName.value.trim(),
+    description: inputDescription.value.trim(),
+  });
+
+  editCard.style.display = "none";
+}
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  descriptionSelector: ".profile__description",
 });
+
+// Para obter os dados do usuário:
+const dados = userInfo.getUserInfo();
+
+// Para atualizar os dados do usuário:
+userInfo.setUserInfo({ name: "Jacques Cousteu", description: "Explorador" });

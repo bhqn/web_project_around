@@ -1,8 +1,11 @@
+
 import { Card } from "./card.js";
 import { setCardEventListeners } from "./utils.js";
 import { FormValidator } from "./formValidator.js";
+import { Section } from "./Section.js";
 
-const initialCards = [
+
+export const initialCards = [
   {
     name: "Vale de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
@@ -29,13 +32,41 @@ const initialCards = [
   },
 ];
 
-// Adiciona todos os cards na galeria
-const galleryContainer = document.getElementById("gallery-container");
-initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#gallery__template");
-  const cardElement = card.generateCard();
-  setCardEventListeners(cardElement, cardData.link, cardData.name); // Eventos via utils.js
-  galleryContainer.appendChild(cardElement);
+// Instancia Section para a galeria
+const cardSection = new Section({
+  items: initialCards,
+  renderer: (cardData) => {
+    const card = new Card(cardData, "#gallery__template");
+    const cardElement = card.generateCard();
+    setCardEventListeners(cardElement, cardData.link, cardData.name);
+    return cardElement;
+  }
+}, "#gallery-container");
+
+// Renderiza os cards iniciais
+cardSection.renderItems();
+
+// Adiciona novo card via formulário
+const placeForm = document.getElementById("form__place");
+const placeInput = document.querySelector(".form__input-place");
+const srcInput = document.querySelector(".form__input_src");
+const addCard = document.getElementById("addCard");
+
+placeForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const place = placeInput.value.trim();
+  const link = srcInput.value.trim();
+
+  if (place && link) {
+    const newCard = { name: place, link };
+    const card = new Card(newCard, "#gallery__template");
+    const cardElement = card.generateCard();
+    setCardEventListeners(cardElement, link, place);
+    cardSection.addItem(cardElement);
+    placeInput.value = "";
+    srcInput.value = "";
+    addCard.style.display = "none";
+  }
 });
 
 new FormValidator({
