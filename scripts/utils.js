@@ -1,9 +1,12 @@
 import { UserInfo } from "./UserInfo.js";
-import { PopupWithImage, PopupWithForm } from "./Popup.js";
+//import { PopupWithImage, PopupWithForm } from "./Popup.js";
+import { PopupWithImage } from './PopupWithImage.js';
+import { PopupWithForm } from './PopupWithForms.js';
 
 // ----- POPUP DE IMAGEM -----
 const imagePopup = new PopupWithImage(".popup_type_image");
 imagePopup.setEventListeners();
+
 
 export function setCardEventListeners(cardElement, link, name) {
   // Abrir popup ao clicar na imagem
