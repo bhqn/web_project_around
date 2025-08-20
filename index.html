@@ -44,27 +44,25 @@
             />
           </button>
         </section>
-        <section class="gallery" id="gallery-container">
-          <!--
-              TEMPLATE
-                 -->
 
+        <section class="gallery" id="gallery-container">
+          <!-- TEMPLATE -->
           <template id="gallery__template">
             <div class="gallery__card">
-              <button class="card__button-remove" id="removeButton"></button>
-              <img src="${link}" alt="${name}" class="gallery__image" />
-
+              <button class="card__button-remove"></button>
+              <img src="" alt="" class="gallery__image" />
               <div class="card">
-                <p class="card__title">${name}</p>
+                <p class="card__title"></p>
                 <button class="card__button"></button>
               </div>
             </div>
           </template>
         </section>
 
+        <!-- Editar Perfil -->
         <section class="edit modal" id="editCard">
           <div class="edit__button">
-            <button class="edit__button-close" id="buttonclose"></button>
+            <button class="edit__button-close popup__close" id="buttonclose"></button>
           </div>
 
           <div class="edit__card">
@@ -72,7 +70,8 @@
             <form class="form">
               <fieldset class="form__fieldset">
                 <div class="form__group-name">
-                  <input required
+                  <input
+                    required
                     class="form__input form__input_name"
                     name="name"
                     type="text"
@@ -83,7 +82,8 @@
                   <small class="form__error"></small>
                 </div>
                 <div class="form__group-description">
-                  <input required
+                  <input
+                    required
                     class="form__input form__input_description"
                     name="description"
                     type="text"
@@ -99,13 +99,14 @@
           </div>
         </section>
 
-        <section class="edit modal" id="addCard">edit__button-save
+        <!-- Novo Lugar -->
+        <section class="edit modal" id="addCard">
           <div class="edit__button">
-            <button class="edit__button-close" id="closeAddButton"></button>
+            <button class="edit__button-close popup__close" id="closeAddButton"></button>
           </div>
           <div class="edit__card">
             <h1 class="edit__tittle">Novo Lugar</h1>
-            <form  class="form" id="form__place">
+            <form class="form" id="form__place">
               <fieldset class="form__fieldset">
                 <div class="form__group form__group-place">
                   <input
@@ -130,30 +131,30 @@
                   <small class="form__error"></small>
                 </div>
               </fieldset>
-              <button  class="edit__button-save" id="save__place" disabled>
+              <button class="edit__button-save" id="save__place" disabled>
                 Salvar
               </button>
             </form>
           </div>
         </section>
 
-        <section class="popup modal">
+        <!-- Popup de Imagem -->
+        <section class="popup popup_type_image modal">
           <div class="popup__container">
             <div class="popup__image-align">
-              <button
-                class="popup__button-close"
-                id="closePopUpButton"
-              ></button>
+              <button class="popup__close" id="closePopUpButton"></button>
               <img src="" class="popup__image" />
               <h1 class="popup__title"></h1>
             </div>
           </div>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__paragraph">&copy 2024 Around The U.S.</p>
       </footer>
     </div>
+
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

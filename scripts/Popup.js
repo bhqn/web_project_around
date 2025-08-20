@@ -1,11 +1,7 @@
 export class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this._closeButton = this._popup.querySelector(".popup__button-close");
-    this._openButtons = document.querySelectorAll(".gallery__image"); // vários botões
     this._handleEscClose = this._handleEscClose.bind(this);
-
-    this._setEventListeners();
   }
 
   open() {
@@ -24,13 +20,53 @@ export class Popup {
     }
   }
 
-  _setEventListeners() {
-    // Botão de fechar
-    this._closeButton.addEventListener("click", () => this.close());
-
-    // Vários botões de abrir
-    this._openButtons.forEach(btn => {
-      btn.addEventListener("click", () => this.open());
+  setEventListeners() {
+    this._popup.querySelector(".popup__close").addEventListener("click", () => this.close());
+    this._popup.addEventListener("mousedown", (evt) => {
+      if (evt.target === this._popup) {
+        this.close();
+      }
     });
+  }
+}
+
+export class PopupWithImage extends Popup {
+  open({ link, name }) {
+    const image = this._popup.querySelector(".popup__image");
+    const caption = this._popup.querySelector(".popup__title");
+    image.src = link;
+    image.alt = name;
+    caption.textContent = name;
+    super.open();
+  }
+}
+
+export class PopupWithForm extends Popup {
+  constructor(popupSelector, handleFormSubmit) {
+    super(popupSelector);
+    this._handleFormSubmit = handleFormSubmit;
+    this._form = this._popup.querySelector("form");
+  }
+
+  _getInputValues() {
+    const inputs = this._form.querySelectorAll("input");
+    const values = {};
+    inputs.forEach(input => {
+      values[input.name] = input.value;
+    });
+    return values;
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+    });
+  }
+
+  close() {
+    super.close();
+    this._form.reset();
   }
 }
