@@ -119,3 +119,4 @@ validateForm(form, submitButton) {
     });
   }
 }
+

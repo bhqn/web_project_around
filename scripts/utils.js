@@ -81,3 +81,5 @@ addPopup.setEventListeners();
 // Botão abrir popup de adicionar card
 const addButton = document.getElementById("add__button");
 addButton.addEventListener("click", () => addPopup.open());
+
+

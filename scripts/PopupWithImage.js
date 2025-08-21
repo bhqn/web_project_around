@@ -8,5 +8,7 @@ export class PopupWithImage extends Popup {
     image.alt = name;
     caption.textContent = name;
     super.open();
+
+    
   }
 }
