@@ -16,4 +16,3 @@ export class UserInfo {
         if (description) this._descriptionElement.textContent = description;
     }
 }
-
