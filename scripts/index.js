@@ -1,7 +1,7 @@
 
 import { Card } from "./Card.js";
 import { setCardEventListeners } from "./utils.js";
-import { FormValidator } from "./formValidator.js";
+import { FormValidator } from "./FormValidator.js";
 import { Section } from "./Section.js";
 
 
