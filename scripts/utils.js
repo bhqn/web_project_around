@@ -21,8 +21,8 @@ export function setCardEventListeners(cardElement, link, name, api) {
 
 
 
-
-  const removeButton = cardElement.querySelector(".card__button-remove");
+// Remover card
+const removeButton = cardElement.querySelector(".card__button-remove");
 removeButton.addEventListener("click", () => {
   api.removeCard(cardElement.id)
     .then(() => { cardElement.remove(); })
@@ -34,22 +34,13 @@ removeButton.addEventListener("click", () => {
 
 
 
-// Remover card
-  /*const removeButton = cardElement.querySelector(".card__button-remove");
-  if (removeButton) {
-    removeButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
-  }
-    */
-
   // Like
-  const likeButton = cardElement.querySelector(".card__button");
-  if (likeButton) {
-    likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("card__button--active");
-    });
-  }
+  //const likeButton = cardElement.querySelector(".card__button");
+  //if (likeButton) {
+    //likeButton.addEventListener("click", () => {
+      // likeButton.classList.toggle("card__button--active");
+    //});
+  //}
 }
 
 // ----- USER INFO -----

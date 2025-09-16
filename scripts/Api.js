@@ -22,15 +22,24 @@ class Api {
       headers: this._headers,
     }).then(this._handleServerResponse);
   }
- 
-  getAppInfo() {
-    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
-  }
+
+addLike(cardId) {
+  return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    method: "PUT",
+    headers: this._headers,
+  }).then(this._handleServerResponse);
+}
+
+removeLike(cardId) {
+  return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    method: "DELETE",
+    headers: this._headers,
+  }).then(this._handleServerResponse);
+}
 
   // criar card
 
   createCard(data) {
-      
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -41,22 +50,18 @@ class Api {
     }).then(this._handleServerResponse);
   }
 
-  // remover card 
+  // remover card
 
-  removeCard(cardid){
+  removeCard(cardid) {
     return fetch(`${this._baseUrl}/cards/${cardid}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._handleServerResponse);
   }
-}
 
-function generateCard(data) {
-  const card = new Card(data, "#gallery__template");
-  const cardElement = card.generateCard();
-  cardElement.id = data._id; // Defina o id aqui!
-  setCardEventListeners(cardElement, data.link, data.name, api);
-  return cardElement;
+  getAppInfo() {
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+  }
 }
 
 export default Api;

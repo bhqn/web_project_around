@@ -16,11 +16,13 @@ const api = new Api({
 });
 
 function generateCard(data) {
-  const card = new Card(data, "#gallery__template");
+  const card = new Card(data, "#gallery__template", api);
   const cardElement = card.generateCard();
   cardElement.id = data._id; // <-- Defina o id aqui!
   setCardEventListeners(cardElement, data.link, data.name, api);
   return cardElement;
+
+  
 }
 
 // Instancia Section para a galeria
@@ -75,7 +77,10 @@ api.getAppInfo().then(([resultCards, userData]) => {
   userData.description = userData.about;
   userInfo.setUserInfo(userData);
   cardSection.renderItems(resultCards);
+  
 });
+
+
 
 new FormValidator({
   formSelector: ".form",
