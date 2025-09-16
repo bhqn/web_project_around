@@ -2,25 +2,46 @@ import { UserInfo } from "./UserInfo.js";
 //import { PopupWithImage, PopupWithForm } from "./Popup.js";
 import { PopupWithImage } from './PopupWithImage.js';
 import { PopupWithForm } from './PopupWithForms.js';
+import Api from "./Api.js";
 
 // ----- POPUP DE IMAGEM -----
 const imagePopup = new PopupWithImage(".popup_type_image");
 imagePopup.setEventListeners();
 
 
-export function setCardEventListeners(cardElement, link, name) {
+
+export function setCardEventListeners(cardElement, link, name, api) {
   // Abrir popup ao clicar na imagem
   cardElement.querySelector(".gallery__image").addEventListener("click", () => {
     imagePopup.open({ link, name });
   });
 
-  // Remover card
+
+
+
+
+
+
   const removeButton = cardElement.querySelector(".card__button-remove");
+removeButton.addEventListener("click", () => {
+  api.removeCard(cardElement.id)
+    .then(() => { cardElement.remove(); })
+    .catch((err) => {
+      console.log("Erro ao remover card:", err);
+      // caso ocorra um erro
+    }); 
+});
+
+
+
+// Remover card
+  /*const removeButton = cardElement.querySelector(".card__button-remove");
   if (removeButton) {
     removeButton.addEventListener("click", () => {
       cardElement.remove();
     });
   }
+    */
 
   // Like
   const likeButton = cardElement.querySelector(".card__button");
@@ -52,8 +73,7 @@ const openButton = document.getElementById("open__button_edit");
 openButton.addEventListener("click", () => editPopup.open());
 
 // ----- CRIAR CARDS -----
-const galleryContainer = document.querySelector(".gallery");
-
+/*const galleryContainer = document.querySelector(".gallery");
 function createCard({ place, image }) {
   const template = document.getElementById("card-template").content.cloneNode(true);
   const cardElement = template.querySelector(".gallery__item");
@@ -69,6 +89,7 @@ function createCard({ place, image }) {
 
   return cardElement;
 }
+  */
 
 // ----- POPUP DE ADICIONAR CARD -----
 const addPopup = new PopupWithForm("#addCard", (formData) => {

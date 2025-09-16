@@ -23,5 +23,7 @@ export class Card {
     // Eventos ficam em utils.js
     return this._element;
   }
+
+  
 }
 

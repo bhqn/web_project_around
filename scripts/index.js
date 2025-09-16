@@ -1,47 +1,38 @@
-
+import Api from "./Api.js";
 import { Card } from "./Card.js";
 import { setCardEventListeners } from "./utils.js";
 import { FormValidator } from "./FormValidator.js";
 import { Section } from "./Section.js";
+import { UserInfo } from "./UserInfo.js";
 
+//api
 
-export const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+const api = new Api({
+  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
+  headers: {
+    authorization: "c2b29e92-9f38-419a-be2d-1ca3d5baf512",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
+});
+
+function generateCard(data) {
+  const card = new Card(data, "#gallery__template");
+  const cardElement = card.generateCard();
+  cardElement.id = data._id; // <-- Defina o id aqui!
+  setCardEventListeners(cardElement, data.link, data.name, api);
+  return cardElement;
+}
 
 // Instancia Section para a galeria
-const cardSection = new Section({
-  items: initialCards,
-  renderer: (cardData) => {
-    const card = new Card(cardData, "#gallery__template");
-    const cardElement = card.generateCard();
-    setCardEventListeners(cardElement, cardData.link, cardData.name);
-    return cardElement;
-  }
-}, "#gallery-container");
+
+const cardSection = new Section(
+  {
+    renderer: (data) => {
+      cardSection.addItem(generateCard(data));
+    },
+  },
+  "#gallery-container"
+);
 
 // Renderiza os cards iniciais
 cardSection.renderItems();
@@ -56,17 +47,34 @@ placeForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const place = placeInput.value.trim();
   const link = srcInput.value.trim();
-
   if (place && link) {
     const newCard = { name: place, link };
-    const card = new Card(newCard, "#gallery__template");
-    const cardElement = card.generateCard();
-    setCardEventListeners(cardElement, link, place);
-    cardSection.addItem(cardElement);
-    placeInput.value = "";
-    srcInput.value = "";
-    addCard.style.display = "none";
+    api
+      .createCard(newCard)
+      .then((createdCard) => {
+        const cardElement = generateCard(createdCard);
+        cardSection.addItem(cardElement);
+        placeInput.value = "";
+        srcInput.value = "";
+        addCard.style.display = "none";
+      })
+      .catch((err) => {
+        console.log("Erro ao criar card:", err);
+      });
   }
+});
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  descriptionSelector: ".profile__description",
+});
+
+api.getAppInfo().then(([resultCards, userData]) => {
+  console.log("Cards data:", resultCards);
+  console.log("User data:", userData);
+  userData.description = userData.about;
+  userInfo.setUserInfo(userData);
+  cardSection.renderItems(resultCards);
 });
 
 new FormValidator({
@@ -77,4 +85,3 @@ new FormValidator({
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
-
