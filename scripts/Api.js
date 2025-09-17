@@ -30,6 +30,16 @@ addLike(cardId) {
   }).then(this._handleServerResponse);
 }
 
+updateUserInfo(data) {
+  return fetch(`${this._baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify({
+      name: data.name,
+      about: data.about
+    })
+  }).then(this._handleServerResponse);
+}
 removeLike(cardId) {
   return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: "DELETE",
