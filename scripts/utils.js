@@ -1,9 +1,15 @@
+// ==========================
+// IMPORTAÇÕES DOS MÓDULOS
+// ==========================
 import { UserInfo } from "./UserInfo.js";
 //import { PopupWithImage, PopupWithForm } from "./Popup.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForms.js";
 import Api from "./Api.js";
 
+// ==========================
+// CONFIGURAÇÃO DA API
+// ==========================
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
   headers: {
@@ -12,10 +18,15 @@ const api = new Api({
   },
 });
 
-// ----- POPUP DE IMAGEM -----
+// ==========================
+// POPUP DE IMAGEM (visualização)
+// ==========================
 const imagePopup = new PopupWithImage(".popup_type_image");
 imagePopup.setEventListeners();
 
+// ==================================================================
+// FUNÇÃO: Define os eventos de cada card (abrir imagem, deletar card)
+// ==================================================================
 export function setCardEventListeners(cardElement, link, name, api) {
   // Abrir popup ao clicar na imagem
   cardElement.querySelector(".gallery__image").addEventListener("click", () => {
@@ -32,20 +43,23 @@ export function setCardEventListeners(cardElement, link, name, api) {
       })
       .catch((err) => {
         console.log("Erro ao remover card:", err);
-        // caso ocorra um erro
+        // Aqui você pode adicionar uma mensagem visual de erro
       });
   });
-
 }
 
-// ----- USER INFO -----
+// ==========================
+// GERENCIAMENTO DE USUÁRIO
+// ==========================
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   descriptionSelector: ".profile__description",
 });
 
+// ===============================================
+// POPUP: Editar perfil do usuário
+// ===============================================
 const editPopup = new PopupWithForm("#editCard", (formData) => {
-  // Chama a API para atualizar o perfil
   api
     .updateUserInfo({
       name: formData.name.trim(),
@@ -59,24 +73,28 @@ const editPopup = new PopupWithForm("#editCard", (formData) => {
       editPopup.close();
     })
     .catch((err) => {
-      console.log("erro ao atualizar o perfil:", err);
-      // Aqui você pode mostrar um erro na interface, se quiser
+      console.log("Erro ao atualizar o perfil:", err);
+      // Aqui você pode exibir uma mensagem de erro para o usuário
     });
 });
+
 editPopup.setEventListeners();
 
-// Botão abrir popup de edição
+// Botão para abrir popup de edição de perfil
 const openButton = document.getElementById("open__button_edit");
 openButton.addEventListener("click", () => editPopup.open());
 
-// ----- POPUP DE ADICIONAR CARD -----
+// ===============================================
+// POPUP: Adicionar novo card
+// ===============================================
 const addPopup = new PopupWithForm("#addCard", (formData) => {
   const newCard = createCard(formData);
-  galleryContainer.prepend(newCard); // adiciona no topo da lista
+  galleryContainer.prepend(newCard); // adiciona no topo da galeria
   addPopup.close();
 });
+
 addPopup.setEventListeners();
 
-// Botão abrir popup de adicionar card
+// Botão para abrir popup de adicionar card
 const addButton = document.getElementById("add__button");
 addButton.addEventListener("click", () => addPopup.open());

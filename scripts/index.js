@@ -1,3 +1,6 @@
+// ==========================
+// IMPORTAÇÕES DOS MÓDULOS
+// ==========================
 import Api from "./Api.js";
 import { Card } from "./Card.js";
 import { setCardEventListeners } from "./utils.js";
@@ -5,8 +8,9 @@ import { FormValidator } from "./FormValidator.js";
 import { Section } from "./Section.js";
 import { UserInfo } from "./UserInfo.js";
 
-//api
-
+// ==========================
+// CONFIGURAÇÃO DA API
+// ==========================
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
   headers: {
@@ -15,16 +19,36 @@ const api = new Api({
   },
 });
 
+// =======================================
+// GERENCIAMENTO DE USUÁRIO
+// =======================================
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  descriptionSelector: ".profile__description",
+});
+
+// Requisição inicial: dados do usuário e cards
+api.getAppInfo().then(([resultCards, userData]) => {
+  userData.description = userData.about;
+  userInfo.setUserInfo(userData);           // Atualiza informações do usuário
+  cardSection.renderItems(resultCards);     // Renderiza os cards na galeria
+  console.log(userData.name, userData.about);
+});
+
+// =======================================
+// GERENCIAMENTO DE CARDS
+// =======================================
+
+// Função para gerar um card individual
 function generateCard(data) {
   const card = new Card(data, "#gallery__template", api);
   const cardElement = card.generateCard();
-  cardElement.id = data._id; // <-- Defina o id aqui!
-  setCardEventListeners(cardElement, data.link, data.name, api);
+  cardElement.id = data._id; // Define o ID no DOM
+  setCardEventListeners(cardElement, data.link, data.name, api); // Eventos (like, deletar, etc.)
   return cardElement;
 }
 
-// Instancia Section para a galeria
-
+// Instancia Section para renderizar a galeria de cards
 const cardSection = new Section(
   {
     renderer: (data) => {
@@ -34,10 +58,12 @@ const cardSection = new Section(
   "#gallery-container"
 );
 
-// Renderiza os cards iniciais
-cardSection.renderItems();
+// Renderiza os cards iniciais (caso não tenha sido feito no getAppInfo)
+// cardSection.renderItems(); ← Comentado porque já está sendo feito no getAppInfo
 
-// Adiciona novo card via formulário
+// ==============================
+// FORMULÁRIO: Adição de novo card
+// ==============================
 const placeForm = document.getElementById("form__place");
 const placeInput = document.querySelector(".form__input-place");
 const srcInput = document.querySelector(".form__input_src");
@@ -53,7 +79,7 @@ placeForm.addEventListener("submit", function (event) {
       .createCard(newCard)
       .then((createdCard) => {
         const cardElement = generateCard(createdCard);
-        cardSection.addItem(cardElement);
+        cardSection.addItem(cardElement); // Adiciona o novo card na galeria
         placeInput.value = "";
         srcInput.value = "";
         addCard.style.display = "none";
@@ -64,21 +90,9 @@ placeForm.addEventListener("submit", function (event) {
   }
 });
 
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  descriptionSelector: ".profile__description",
-});
-
-api.getAppInfo().then(([resultCards, userData]) => {
-  //console.log("Cards data:", resultCards);
-  //console.log("User data:", userData);
-  //console.log ( "_isLike:",resultCards)
-  userData.description = userData.about;
-  userInfo.setUserInfo(userData);
-  cardSection.renderItems(resultCards);
-  console.log(userData.name, userData.about);
-});
-
+// ==============================
+// VALIDAÇÃO DE FORMULÁRIOS
+// ==============================
 new FormValidator({
   formSelector: ".form",
   inputSelector: ".form__input",
