@@ -73,10 +73,11 @@ const userInfo = new UserInfo({
 
 api.getAppInfo().then(([resultCards, userData]) => {
   console.log("Cards data:", resultCards);
-  console.log("User data:", userData);
+  //console.log("User data:", userData);
   userData.description = userData.about;
   userInfo.setUserInfo(userData);
   cardSection.renderItems(resultCards);
+  console.log ( "_isLike:",resultCards)
   
 });
 

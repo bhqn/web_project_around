@@ -6,6 +6,7 @@ export class Card {
     this._id = data._id;
     this._isLike = data._isLike; 
     this._api = api;
+    
   }
 
   _getTemplate() {
@@ -22,10 +23,11 @@ export class Card {
     this._element.querySelector(".gallery__image").src = this._link;
     this._element.querySelector(".gallery__image").alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
-
     this._likeButton = this._element.querySelector(".card__button");
 
- 
+    this._loadLikeState(); // <-- carrega o estado salvo
+    this.setLikeState(this._isLike); // <-- aplica o estado visual
+
     this._setEventListeners();
 
     return this._element;
@@ -57,9 +59,24 @@ export class Card {
   setLikeState(isLiked) {
     this._isLike = isLiked;
     if (isLiked) {
-      this._likeButton.classList.add("card__button--active"); // sem ponto!
+      this._likeButton.classList.add("card__button--active");
     } else {
-      this._likeButton.classList.remove("card__button--active"); // sem espaço!
+      this._likeButton.classList.remove("card__button--active");
+    }
+    this._saveLikeState();
+  }
+
+  _saveLikeState() {
+    // Recupera o objeto de likes do localStorage ou cria um novo
+    const likes = JSON.parse(localStorage.getItem("cardLikes")) || {};
+    likes[this._id] = this._isLike;
+    localStorage.setItem("cardLikes", JSON.stringify(likes));
+  }
+
+  _loadLikeState() {
+    const likes = JSON.parse(localStorage.getItem("cardLikes")) || {};
+    if (likes.hasOwnProperty(this._id)) {
+      this._isLike = likes[this._id];
     }
   }
 }
