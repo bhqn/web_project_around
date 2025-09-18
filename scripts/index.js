@@ -9,6 +9,7 @@ import { Section } from "./Section.js";
 import { UserInfo } from "./UserInfo.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForms.js";
+import { Popup } from "./Popup.js";
 
 // ==========================
 // CONFIGURAÇÃO DA API
@@ -35,6 +36,32 @@ const userInfo = new UserInfo({
 const imagePopup = new PopupWithImage(".popup_type_image");
 imagePopup.setEventListeners();
 
+// ==============================
+//  PICTURE
+// ==============================
+
+document
+  .querySelector(".profile__picture-wrapper")
+  .addEventListener("click", () => {
+    editPicture.open();
+  });
+
+// instância do popup de avatar
+const editPicture = new PopupWithForm("#avatarCard", (formData) => {
+  // aqui envia para a API
+  api.updateAvatarInfo(formData)
+    .then((res) => {
+      console.log("Avatar atualizado:", res);
+      //atualizar o DOM com a nova imagem
+      document.querySelector(".profile__picture").src = res.avatar;
+      editPicture.close();
+    })
+    .catch((err) => {
+      console.log("ocorreu um erro", err);
+    });
+});
+
+editPicture.setEventListeners();
 // ===============================================
 // POPUP: Editar perfil do usuário
 // ===============================================
@@ -89,18 +116,17 @@ const cardSection = new Section(
 // Requisição inicial: dados do usuário e cards
 api.getAppInfo().then(([resultCards, userData]) => {
   userData.description = userData.about;
-  userInfo.setUserInfo(userData);           // Atualiza informações do usuário
-  cardSection.renderItems(resultCards);     // Renderiza os cards na galeria
+  userInfo.setUserInfo(userData); // Atualiza informações do usuário
+  cardSection.renderItems(resultCards); // Renderiza os cards na galeria
+  document.querySelector(".profile__picture").src = userData.avatar; // atualiza o avatat
   console.log(userData.name, userData.about);
-  
 });
-
 
 // ==============================
 // POPUP: Adição de novo card
 // ==============================
 const addPopup = new PopupWithForm("#addCard", (formData) => {
-   const submitBtn = document.querySelector("#addCard .edit__button-save"); 
+  const submitBtn = document.querySelector("#addCard .edit__button-save");
   // DEBUG: Verifique quais campos o formulário está enviando
   console.log("Dados do formulário recebidos:", formData);
   //desarmando botao e alterar texto de loading
@@ -108,46 +134,46 @@ const addPopup = new PopupWithForm("#addCard", (formData) => {
   submitBtn.textContent = "Salvando...";
   // Mapeie os campos do formulário para os campos que a API espera
   // Supondo que seu formulário tenha inputs com name="place" e name="src"
-  const newCard = { 
-    name: formData.place,    // O campo 'place' do formulário vira 'name' para a API
-    link: formData.image       // O campo 'src' do formulário vira 'link' para a API
+  const newCard = {
+    name: formData.place, // O campo 'place' do formulário vira 'name' para a API
+    link: formData.image, // O campo 'src' do formulário vira 'link' para a API
   };
-  
+
   console.log("Dados enviados para API:", newCard);
-  
+
   // Validação básica
   if (!newCard.name || !newCard.link) {
     console.error("Dados incompletos:", newCard);
     return;
   }
-  
+
   api
     .createCard(newCard)
     .then((createdCard) => {
-      
       console.log("Card criado com sucesso:", createdCard);
       const cardElement = generateCard(createdCard);
       cardSection.addItem(cardElement);
       addPopup.close();
-      
     })
     .catch((err) => {
       console.log("Erro detalhado ao criar card:", err);
       // Tente obter mais detalhes do erro
       if (err.response) {
-        err.response.json().then(errorData => {
-          console.log("Detalhes do erro da API:", errorData);
-        }).catch(parseError => {
-          console.log("Erro ao parsear resposta de erro:", parseError);
-        });
+        err.response
+          .json()
+          .then((errorData) => {
+            console.log("Detalhes do erro da API:", errorData);
+          })
+          .catch((parseError) => {
+            console.log("Erro ao parsear resposta de erro:", parseError);
+          });
       }
-    }).finally(
-      () => {
-              // Reabilita o botão depois da resposta
+    })
+    .finally(() => {
+      // Reabilita o botão depois da resposta
       submitBtn.disabled = false;
       submitBtn.textContent = "Salvar"; // volta ao normal
-      }
-    )
+    });
 });
 addPopup.setEventListeners();
 

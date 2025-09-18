@@ -23,6 +23,8 @@ class Api {
     }).then(this._handleServerResponse);
   }
 
+
+
 addLike(cardId) {
   return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: "PUT",
@@ -40,6 +42,19 @@ updateUserInfo(data) {
     })
   }).then(this._handleServerResponse);
 }
+
+updateAvatarInfo(data) {
+  console.log("Enviando para API:", data);
+
+  return fetch(`${this._baseUrl}/users/me/avatar`, {
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify({
+      avatar: data.avatar
+    })
+  }).then(this._handleServerResponse);
+}
+
 removeLike(cardId) {
   return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: "DELETE",
@@ -70,7 +85,7 @@ removeLike(cardId) {
   }
 
   getAppInfo() {
-    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+    return Promise.all([this.getInitialCards(), this.getUserInfo(), ]);
   }
 }
 

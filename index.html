@@ -18,11 +18,16 @@
       </header>
       <main class="main">
         <section class="profile">
-          <img
-            class="profile__picture"
-            src="./images/perfil-image.jpg"
-            alt="imagem de perfil"
-          />
+          <div class="profile__picture-wrapper">
+            <img
+              class="profile__picture"
+              src="./images/perfil-image.jpg"
+              alt="imagem de perfil"
+            />
+            <div class="profile__overlay">
+              <img src="./images/pen.png" alt="Editar" class="profile__icon" />
+            </div>
+          </div>
           <div class="profile__content">
             <div class="profile__info">
               <h1 class="profile__name"></h1>
@@ -62,7 +67,10 @@
         <!-- Editar Perfil -->
         <section class="edit modal" id="editCard">
           <div class="edit__button">
-            <button class="edit__button-close popup__close" id="buttonclose"></button>
+            <button
+              class="edit__button-close popup__close"
+              id="buttonclose"
+            ></button>
           </div>
 
           <div class="edit__card">
@@ -99,11 +107,13 @@
           </div>
         </section>
 
-
-                <!--  delete card -->
+        <!--  delete card -->
         <section class="confirm modal" id="confirmPopup">
           <div class="confirm__close">
-            <button class="confirm__button-close popup__close" id="buttonclose"></button>
+            <button
+              class="confirm__button-close popup__close"
+              id="buttonclose"
+            ></button>
           </div>
           <div class="confirm__card">
             <h1 class="confirm__tittle">Tem Certeza?</h1>
@@ -111,10 +121,41 @@
           </div>
         </section>
 
+        <!--  avatar card -->
+        <section class="avatar modal" id="avatarCard">
+          <div class="avatar__close">
+            <button
+              class="avatar__button-close popup__close"
+              id="buttonclose"
+            ></button>
+          </div>
+          <div class="avatar__card">
+            <h1 class="avatar__tittle">Alterar a foto do perfil</h1>
+            <div class="form__group">
+              <form class="form" id="form__place avatarCard">
+                <input
+                  class="form__input form__input_src"
+                  name="avatar"
+                  type="url"
+                  placeholder="Url da Imagem"
+                  required
+                />
+                <small class="form__error"></small>
+                <button class="avatar__button submit">Salvar</button>
+              </form>
+            </div>
+
+            
+          </div>
+        </section>
+
         <!-- Novo Lugar -->
         <section class="edit modal" id="addCard">
           <div class="edit__button">
-            <button class="edit__button-close popup__close" id="closeAddButton"></button>
+            <button
+              class="edit__button-close popup__close"
+              id="closeAddButton"
+            ></button>
           </div>
           <div class="edit__card">
             <h1 class="edit__tittle">Novo Lugar</h1>
@@ -160,10 +201,6 @@
             </div>
           </div>
         </section>
-
-        
-
-
       </main>
 
       <footer class="footer">

@@ -1,4 +1,4 @@
-.confirm {
+.avatar {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
   padding: 0;
 }
 
-.confirm__card {
+.avatar__card {
   position: relative;
   top: 30%;
   background-color: white;
@@ -29,14 +29,14 @@
   gap: 20px;
 }
 
-.confirm__close {
+.avatar__close {
   position: relative;
   top: 30%;
   width: 430px;
   margin: auto;
 }
 
-.confirm__button-close {
+.avatar__button-close {
   position: relative;
   left: 80px;
   display: flex;
@@ -51,19 +51,19 @@
   cursor: pointer;
 }
 
-.confirm__tittle {
+.avatar__tittle {
   color: black;
-  margin-left: 30px;
+  
 }
 
-.confirm__button {
+.avatar__button {
   width: 100%;
   max-width: 358px;
   background-color: black;
   color: white;
   height: 50.15px;
   margin: auto;
-  
+  margin-top: 30px;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
