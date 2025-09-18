@@ -27,13 +27,18 @@ export function setCardEventListeners(
         .removeCard(cardElement.id)
         .then(() => {
           cardElement.remove();
+
         })
         .catch((err) => {
           console.log("Erro ao remover card:", err);
           // Aqui você pode adicionar uma mensagem visual de erro
+        }).finally(() => {
+          confirm.style.display = "none";
+          cleanup();
         });
+        ;
 
-      confirm.style.display = "none";
+      
     };
 
     const handleClose = () => {

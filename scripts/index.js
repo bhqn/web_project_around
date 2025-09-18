@@ -100,9 +100,12 @@ api.getAppInfo().then(([resultCards, userData]) => {
 // POPUP: Adição de novo card
 // ==============================
 const addPopup = new PopupWithForm("#addCard", (formData) => {
+   const submitBtn = document.querySelector("#addCard .edit__button-save"); 
   // DEBUG: Verifique quais campos o formulário está enviando
   console.log("Dados do formulário recebidos:", formData);
-  
+  //desarmando botao e alterar texto de loading
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Salvando...";
   // Mapeie os campos do formulário para os campos que a API espera
   // Supondo que seu formulário tenha inputs com name="place" e name="src"
   const newCard = { 
@@ -121,10 +124,12 @@ const addPopup = new PopupWithForm("#addCard", (formData) => {
   api
     .createCard(newCard)
     .then((createdCard) => {
+      
       console.log("Card criado com sucesso:", createdCard);
       const cardElement = generateCard(createdCard);
       cardSection.addItem(cardElement);
       addPopup.close();
+      
     })
     .catch((err) => {
       console.log("Erro detalhado ao criar card:", err);
@@ -136,7 +141,13 @@ const addPopup = new PopupWithForm("#addCard", (formData) => {
           console.log("Erro ao parsear resposta de erro:", parseError);
         });
       }
-    });
+    }).finally(
+      () => {
+              // Reabilita o botão depois da resposta
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Salvar"; // volta ao normal
+      }
+    )
 });
 addPopup.setEventListeners();
 
