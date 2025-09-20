@@ -30,7 +30,7 @@
           </div>
           <div class="profile__content">
             <div class="profile__info">
-              <h1 class="profile__name"></h1>
+              <h1 class="profile__name">Profile Name</h1>
               <p class="profile__description"></p>
             </div>
             <button class="profile__button-edit" id="open__button_edit">
@@ -50,7 +50,7 @@
           </button>
         </section>
 
-        <section class="gallery" id="gallery-container">
+        <div class="gallery" id="gallery-container">
           <!-- TEMPLATE -->
           <template id="gallery__template">
             <div class="gallery__card">
@@ -62,7 +62,7 @@
               </div>
             </div>
           </template>
-        </section>
+        </div>
 
         <!-- Editar Perfil -->
         <section class="edit modal" id="editCard">
@@ -112,7 +112,7 @@
           <div class="confirm__close">
             <button
               class="confirm__button-close popup__close"
-              id="buttonclose"
+              id="confirmButtonClose"
             ></button>
           </div>
           <div class="confirm__card">
@@ -126,13 +126,13 @@
           <div class="avatar__close">
             <button
               class="avatar__button-close popup__close"
-              id="buttonclose"
+              id="AvatrButtonClose"
             ></button>
           </div>
           <div class="avatar__card">
             <h1 class="avatar__tittle">Alterar a foto do perfil</h1>
             <div class="form__group">
-              <form class="form" id="form__place avatarCard">
+              <form class="form" id="avatarForm">
                 <input
                   class="form__input form__input_src"
                   name="avatar"
@@ -196,15 +196,15 @@
           <div class="popup__container">
             <div class="popup__image-align">
               <button class="popup__close" id="closePopUpButton"></button>
-              <img src="" class="popup__image" />
-              <h1 class="popup__title"></h1>
+              <img src="./images/image1.jpg" class="popup__image" alt="Imagem ampliada de uma foto da galeria"/>
+              <h1 class="popup__title">PopUP Tittle</h1>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p class="footer__paragraph">&copy 2024 Around The U.S.</p>
+        <p class="footer__paragraph">&copy; 2024 Around The U.S.</p>
       </footer>
     </div>
 

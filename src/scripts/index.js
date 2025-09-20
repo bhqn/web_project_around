@@ -49,7 +49,8 @@ document
 // instância do popup de avatar
 const editPicture = new PopupWithForm("#avatarCard", (formData) => {
   // aqui envia para a API
-  api.updateAvatarInfo(formData)
+  api
+    .updateAvatarInfo(formData)
     .then((res) => {
       console.log("Avatar atualizado:", res);
       //atualizar o DOM com a nova imagem
@@ -181,14 +182,33 @@ addPopup.setEventListeners();
 const addButton = document.getElementById("add__button");
 addButton.addEventListener("click", () => addPopup.open());
 
+
 // ==============================
 // VALIDAÇÃO DE FORMULÁRIOS
 // ==============================
-new FormValidator({
-  formSelector: ".form",
+
+// Configuração comum para todos os formulários
+const validationConfig = {
   inputSelector: ".form__input",
   submitButtonSelector: ".edit__button-save",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
-});
+};
+
+// Declaração dos formulários (você já tem isso correto!)
+const editForm = document.querySelector("#editCard .form");
+const addForm = document.querySelector("#addCard .form");
+const avatarForm = document.querySelector("#avatarCard .form");
+
+//criar uma validator para cada form
+
+const editFormValidator = new FormValidator(validationConfig, editForm);
+const addFormValidator = new FormValidator(validationConfig, addForm);
+const avatarFormValidator = new FormValidator(validationConfig, avatarForm);
+
+// chamar o metodo enable validador para dar init()
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+avatarFormValidator.enableValidation();

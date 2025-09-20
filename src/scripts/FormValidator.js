@@ -1,9 +1,9 @@
 export class FormValidator {
-  constructor(config) {
+  constructor(config, formElement) { // lembrar de passar o formelement  no escopo
     this.config = config;
-    this.forms = document.querySelectorAll(config.formSelector);
+    this.formElement = formElement; 
     this.touched = {};
-    this.init();
+    this.urlRegex = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/i; // regex continua aqui
   }
 
   getErrorElement(input) {
@@ -12,13 +12,8 @@ export class FormValidator {
       : input.closest(".form__group")?.querySelector(".form__error");
   }
 
-  isValidUrl(string) {
-    try {
-      new URL(string);
-      return true;
-    } catch (_) {
-      return false;
-    }
+  isValidUrl(str) {
+    return this.urlRegex.test(str);
   }
 
   showError(errorElement, input, message) {
@@ -67,63 +62,65 @@ export class FormValidator {
       this.hideError(errorElement, input);
       return true;
     }
-    return false; // Retorna false se o campo não foi tocado
+    return false;
   }
 
   validateForm(form, submitButton) {
     const inputs = form.querySelectorAll(this.config.inputSelector);
     const inputsArray = Array.from(inputs);
 
-    // Verifica se TODOS os campos obrigatórios são válidos
     const allValid = inputsArray.every((input) => this.validateInput(input));
-    
-    // Verifica se TODOS os campos obrigatórios foram tocados
+
     const allRequiredTouched = inputsArray.every((input) => {
       if (input.required) {
         return this.touched[input.name] || input.value.length > 0;
       }
-      return true; // Campos não obrigatórios são considerados "touched"
+      return true;
     });
 
     if (submitButton) {
-      // Desabilita o botão se nem todos os campos estão válidos OU não foram tocados
       submitButton.disabled = !(allValid && allRequiredTouched);
-      submitButton.classList.toggle(this.config.inactiveButtonClass, !(allValid && allRequiredTouched));
+      submitButton.classList.toggle(
+        this.config.inactiveButtonClass,
+        !(allValid && allRequiredTouched)
+      );
     }
 
     return allValid && allRequiredTouched;
   }
 
   init() {
-    this.forms.forEach((form) => {
-      const inputs = form.querySelectorAll(this.config.inputSelector);
-      const submitButton = form.querySelector(this.config.submitButtonSelector);
-      
-      // Inicialmente desabilita o botão
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.classList.add(this.config.inactiveButtonClass);
-      }
+    const inputs = this.formElement.querySelectorAll(this.config.inputSelector);
+    const submitButton = this.formElement.querySelector(
+      this.config.submitButtonSelector
+    );
 
-      inputs.forEach((input) => {
-        const name = input.name;
-        this.touched[name] = false;
-        
-        const markAsTouched = () => {
-          if (!this.touched[name]) {
-            this.touched[name] = true;
-          }
-          this.validateInput(input);
-          this.validateForm(form, submitButton);
-        };
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add(this.config.inactiveButtonClass);
+    }
 
-        input.addEventListener("focus", markAsTouched);
-        input.addEventListener("input", markAsTouched);
-        input.addEventListener("blur", markAsTouched);
-      });
+    inputs.forEach((input) => {
+      const name = input.name;
+      this.touched[name] = false;
 
-      // Validação inicial
-      this.validateForm(form, submitButton);
+      const markAsTouched = () => {
+        if (!this.touched[name]) {
+          this.touched[name] = true;
+        }
+        this.validateInput(input);
+        this.validateForm(this.formElement, submitButton);
+      };
+
+      input.addEventListener("focus", markAsTouched);
+      input.addEventListener("input", markAsTouched);
+      input.addEventListener("blur", markAsTouched);
     });
+
+    this.validateForm(this.formElement, submitButton);
+  }
+
+  enableValidation() {
+    this.init();
   }
 }
