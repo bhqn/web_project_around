@@ -99,34 +99,26 @@ utils.js: Contém funções auxiliares para manipulação de DOM e eventos.
 
 initialCards[]: Array inicial removido — agora os cards vêm da API.
 
-📂 Principais Arquivos
-WEB_PROJECT_AROUND/
-├── index.html                     ← Página principal
-├── README.md                       ← Documentação do projeto
-├── package.json                    ← Dependências e scripts do projeto
-├── package-lock.json               ← Registro exato das versões das dependências
-├── favicon.ico                     ← Ícone do site
-├── .editorconfig                   ← Configurações do editor
-├── .gitignore                      ← Arquivos ignorados pelo Git
-├── .prettierignore                 ← Arquivos ignorados pelo Prettier
-├── blocks/                         ← Componentes ou blocos de layout (HTML/CSS)
-├── fonts/                          ← Fontes utilizadas no projeto
-├── images/                         ← Imagens estáticas
-├── node_modules/                   ← Dependências instaladas via npm
-├── pages/                          ← Páginas adicionais (se houver)
-├── scripts/                        ← Scripts JavaScript
-│   ├── Api.js                      ← Classe Api para comunicação com backend
-│   ├── Card.js                     ← Classe Card para gerenciar os cards da galeria
-│   ├── FormValidator.js            ← Classe FormValidator para validação de formulários
-│   ├── index.js                     ← Script principal, inicializa o projeto
-│   ├── Popup.js                     ← Classe base para popups
-│   ├── PopupWithForms.js            ← Popup para formulários
-│   ├── PopupWithImage.js            ← Popup para imagens ampliadas
-│   ├── Section.js                   ← Classe Section para renderizar listas/cards
-│   ├── UserInfo.js                  ← Classe UserInfo para perfil do usuário
-│   └── utils.js                     ← Funções auxiliares de DOM e eventos
-└── vendor/                          ← Bibliotecas de terceiros (se houver)
+📂 **Principais Arquivos**
 
+WEB_PROJECT_AROUND/
+├── index.html ← Página principal
+├── README.md ← Documentação do projeto
+├── package.json ← Dependências e scripts do projeto
+├── package-lock.json ← Registro exato das versões das dependências
+├── favicon.ico ← Ícone do site
+├── .editorconfig ← Configurações do editor
+├── .gitignore ← Arquivos ignorados pelo Git
+├── .prettierignore ← Arquivos ignorados pelo Prettier
+├── blocks/ ← Componentes ou blocos de layout (HTML/CSS)
+├── fonts/ ← Fontes utilizadas no projeto
+├── images/ ← Imagens estáticas
+├── node_modules/ ← Dependências instaladas via npm
+├── pages/ ← Páginas adicionais (se houver)
+├── scripts/ ← Scripts JavaScript
+│ ├── Api.js ← Classe Api para comunicação com backend
+│ ├── Card.js ← Classe Card para gerenciar os cards da galeria e eventos
+└── vendor/ ← Bibliotecas de terceiros (se houver)
 
 🧪 Tecnologias Utilizadas
 
