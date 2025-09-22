@@ -145,8 +145,11 @@ API REST para persistência de dados
 🚀 Deploy
 
 O projeto está publicado via GitHub Pages:
-🔗 https://bhqn.github.io/web_project_around/ /n
-index: /n
+
+🔗 https://bhqn.github.io/web_project_around/ 
+
+index: 
+
 🔗 https://bhqn.github.io/web_project_around/src/index.html
 
 🙌 Créditos
