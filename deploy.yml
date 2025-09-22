@@ -20,6 +20,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages            # branch destino
+          branch: main          # branch destino
           folder: docs                # publica a pasta `docs` dentro da gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
