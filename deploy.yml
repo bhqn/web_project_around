@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # ou "master", dependendo da sua branch
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -11,8 +11,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy 🚀
+      - name: Copy src -> docs
+        run: |
+          rm -rf docs || true
+          mkdir docs
+          cp -R src/* docs/
+
+      - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages   # branch usada pelo GitHub Pages
-          folder: src        # aqui está o seu index.html
+          branch: gh-pages            # branch destino
+          folder: docs                # publica a pasta `docs` dentro da gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
